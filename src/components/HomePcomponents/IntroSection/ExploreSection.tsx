@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import abstractDesign from "../../assets/HomeImg/Explore/abstractDesign.png";
-import peoples from "../../assets/HomeImg/Explore/peoples4.png";
+import abstractDesign from "../../../assets/HomeImg/Explore/abstractDesign.png";
+import peoples from "../../../assets/HomeImg/Explore/peoples4.png";
 
 function Counter({ end, duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -42,7 +42,7 @@ function Counter({ end, duration = 2000 }) {
 
 export default function ExploreSection() {
   return (
-    <section className="w-full min-h-screen bg-[#1A1A1A] text-white flex items-center">
+    <section className="w-full min-h-screen bg-[#0D0D0D] text-white flex items-center">
       <div className="container mx-auto lg:px-24 py-20 grid grid-cols-1 lg:grid-cols-2 items-center">
         <div className="px-6 md:px-12 lg:px-0">
           <h3 className="text-[#666666] text-lg mb-4">
