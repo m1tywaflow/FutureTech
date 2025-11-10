@@ -2,6 +2,8 @@ import ExploreSection from "../../components/HomePcomponents/IntroSection/Explor
 import LinkSection from "../../components/HomePcomponents/IntroSection/LinkSection";
 import FutureTech from "../../components/HomePcomponents/FutureTechSection/FutureTech";
 import BlogPosts from "../../components/HomePcomponents/BlogPostsSection/BlogPosts";
+import BlogTabs from "../../components/HomePcomponents/BlogPostsSection/BlogTabs";
+import FutureResources from "../../components/HomePcomponents/ResourcesSection/FutureResources";
 const HomePage = () => {
   return (
     <>
@@ -9,6 +11,8 @@ const HomePage = () => {
       <LinkSection />
       <FutureTech />
       <BlogPosts />
+      <BlogTabs />
+      <FutureResources />
     </>
   );
 };
