@@ -1,5 +1,3 @@
-import { MoveUpRight } from "lucide-react";
-
 export default function FutureBanner() {
   return (
     <section className="px-20 py-16 bg-[#1A1A1A] text-white border-t border-[#1E1E1E]">
@@ -12,9 +10,6 @@ export default function FutureBanner() {
             FutureTech Features
           </h1>
         </div>
-        <button className="flex items-center justify-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 cursor-pointer text-sm font-light">
-          View All Blogs <MoveUpRight className="w-5 h-5 text-yellow-500" />
-        </button>
       </div>
     </section>
   );

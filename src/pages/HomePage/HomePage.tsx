@@ -6,6 +6,8 @@ import BlogPosts from "../../components/HomePcomponents/BlogPostsSection/BlogPos
 import BlogTabs from "../../components/HomePcomponents/BlogPostsSection/BlogTabs";
 import ResourcesBanner from "../../components/HomePcomponents/ResourcesSection/ResourcesBanner";
 import FutureResources from "../../components/HomePcomponents/ResourcesSection/FutureResources";
+import RealReaders from "../../components/HomePcomponents/CommentsSection/RealReadersBanner";
+import AllComments from "../../components/HomePcomponents/CommentsSection/AllComments";
 
 const HomePage = () => {
   return (
@@ -18,6 +20,8 @@ const HomePage = () => {
       <BlogTabs />
       <ResourcesBanner />
       <FutureResources />
+      <RealReaders />
+      <AllComments />
     </>
   );
 };
