@@ -1,4 +1,5 @@
 import Header from "./components/layout/Header/Header";
+import BottomSection from "./components/layout/Bottom/BottomSection";
 import Footer from "./components/layout/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ function App() {
     <>
       <Header />
       <Outlet />
+      <BottomSection />
       <Footer />
     </>
   );

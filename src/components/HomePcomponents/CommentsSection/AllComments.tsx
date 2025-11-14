@@ -68,7 +68,7 @@ export default function AllComments() {
               ))}
             </div>
 
-            <p className="text-sm text-gray-300 ">
+            <p className="text-sm text-gray-300">
               {comment.text}
             </p>
           </div>
