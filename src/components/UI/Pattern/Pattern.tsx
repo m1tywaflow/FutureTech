@@ -1,5 +1,6 @@
+import type { PropsWithChildren } from "react";
 import styled from "styled-components";
-import { PropsWithChildren } from "react";
+
 type PatternProps = PropsWithChildren<{}>;
 
 export default function Pattern({ children }: PatternProps) {
@@ -10,7 +11,6 @@ export default function Pattern({ children }: PatternProps) {
     </Wrapper>
   );
 }
-
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
