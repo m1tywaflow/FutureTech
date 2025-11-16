@@ -59,7 +59,7 @@ export default function RowLinks() {
 
             <div className="mt-auto flex items-center justify-between">
               <div className="flex items-center gap-6 py-4 text-[#98989A]">
-                <LikeButton id={`like-${card.id}`} likes={card.likes} />
+                <LikeButton likes={card.likes} />
                 <span>💬 {card.comments}</span>
               </div>
 

@@ -2,10 +2,15 @@ import { useEffect, useState, useRef } from "react";
 import abstractDesign from "../../../assets/HomeImg/Explore/abstractDesign.png";
 import peoples from "../../../assets/HomeImg/Explore/peoples4.png";
 
-function Counter({ end, duration = 2000 }) {
+interface CounterProps {
+  end: number;
+  duration?: number;
+}
+
+function Counter({ end, duration = 2000 }: CounterProps) {
   const [count, setCount] = useState(0);
   const [visible, setVisible] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
