@@ -1,10 +1,24 @@
 import { Twitter, Dribbble, Linkedin } from "lucide-react";
+
+type FooterLink = {
+  label: string;
+  href?: string;
+  isNew?: boolean;
+};
+
 const defaultHref = "*";
-const footerLinks = {
+
+const footerLinks: {
+  home: FooterLink[];
+  news: FooterLink[];
+  blogs: FooterLink[];
+  podcasts: FooterLink[];
+  resources: FooterLink[];
+} = {
   home: [
     { label: "Features", href: "/features" },
     { label: "Blogs", href: "/blog" },
-    { label: "Resources", href: "/resources" },
+    { label: "Resources", href: "/resources", isNew: true },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Contact Us", href: "/contact" },
     { label: "Newsletter", href: "/newsletter" },
@@ -27,7 +41,7 @@ const footerLinks = {
   ],
   podcasts: [
     { label: "AI Revolution", href: "/podcasts/ai-revolution" },
-    { label: "AI Revolution (New)" },
+    { label: "AI Revolution (New)", isNew: true },
     { label: "TechTalk AI", href: "/podcasts/techtalk-ai" },
     { label: "AI Conversations", href: "/podcasts/ai-conversations" },
   ],
@@ -39,12 +53,13 @@ const footerLinks = {
   ],
 };
 
-export default function Footer() {
-  const safeHref = (href) => href || defaultHref;
+const safeHref = (href?: string) => href || defaultHref;
 
+export default function Footer() {
   return (
     <footer className="bg-black text-gray-300 py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+        {/* Home */}
         <div>
           <h3 className="text-white font-semibold mb-4">Home</h3>
           <ul className="space-y-2 text-sm">
@@ -55,7 +70,7 @@ export default function Footer() {
                   className="hover:text-white flex items-center gap-2 transition-colors"
                 >
                   {item.label}
-                  {item.label === "Resources" && (
+                  {item.isNew && (
                     <span className="text-[10px] bg-yellow-500 text-black px-1.5 rounded">
                       New
                     </span>
@@ -92,7 +107,7 @@ export default function Footer() {
                   {item.label.includes("(New)")
                     ? item.label.replace("(New)", "").trim()
                     : item.label}
-                  {item.label.includes("(New)") && (
+                  {item.isNew && (
                     <span className="text-[10px] bg-yellow-500 text-black px-1.5 rounded">
                       New
                     </span>
@@ -114,7 +129,7 @@ export default function Footer() {
                   {item.label.includes("(New)")
                     ? item.label.replace("(New)", "").trim()
                     : item.label}
-                  {item.label.includes("(New)") && (
+                  {item.isNew && (
                     <span className="text-[10px] bg-yellow-500 text-black px-1.5 rounded">
                       New
                     </span>
