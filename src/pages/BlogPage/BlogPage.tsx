@@ -1,4 +1,9 @@
+import IntroSec from "../../components/BlogPComponents/Intro/IntroSec";
 const BLogPage = () => {
-  return <></>;
+  return (
+    <>
+      <IntroSec />
+    </>
+  );
 };
 export default BLogPage;

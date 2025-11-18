@@ -33,7 +33,6 @@ const Wrapper = styled.div`
     --c: #09f;
     background-color: #000;
 
-    /* ТВОЙ ПОЛНЫЙ ФОН (без сокращений) */
     background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
       radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
       radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
