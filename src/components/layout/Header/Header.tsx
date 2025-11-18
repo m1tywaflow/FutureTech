@@ -33,6 +33,12 @@ export default function Header() {
           >
             Resources
           </Link>
+          <Link
+            to="/blog"
+            className="text-sm text-gray-400 hover:text-white transition"
+          >
+            Blog
+          </Link>
         </nav>
         <Link
           to="/contact-us"
