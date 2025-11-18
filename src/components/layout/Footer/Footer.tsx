@@ -6,7 +6,7 @@ type FooterLink = {
   isNew?: boolean;
 };
 
-const defaultHref = "*";
+const defaultHref = "/404";
 
 const footerLinks: {
   home: FooterLink[];
