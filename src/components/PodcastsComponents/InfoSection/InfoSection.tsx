@@ -10,7 +10,6 @@ export default function InfoSection() {
       icon: revoIcon,
       title: "AI Revolution",
       host: "Dr. Sarah Mitchell",
-      rating: 5,
       bigImg: firstBigImg,
       description:
         "Delves into the transformative impact of AI across industries, featuring expert interviews and real-world case studies.",
@@ -25,7 +24,6 @@ export default function InfoSection() {
       icon: convIcon,
       title: "AI Conversations",
       host: "Mark Anderson",
-      rating: 5,
       bigImg: secondBigImg,
       description:
         "Engage in thought-provoking conversations with leading experts about the future of AI and its impact on society.",
@@ -38,7 +36,7 @@ export default function InfoSection() {
   ];
 
   return (
-    <section className="w-full bg-[#0A0A0A] text-white py-24 px-20">
+    <section className="max-w-8xl bg-[#0A0A0A] text-white py-24 px-20">
       <div className="border border-[#1E1E1E] rounded-2xl overflow-hidden">
         <div className="grid grid-rows-2 divide-y divide-[#1E1E1E]">
           {podcasts.map((item) => (
@@ -52,7 +50,7 @@ export default function InfoSection() {
                 <h1 className="text-3xl font-semibold">{item.title}</h1>
 
                 <div className="flex gap-1">
-                  <StarsRating />
+                  <StarsRating id={item.id} />
                 </div>
                 <p className="text-[#98989A] text-sm">
                   Host: <span className="text-white">{item.host}</span>
