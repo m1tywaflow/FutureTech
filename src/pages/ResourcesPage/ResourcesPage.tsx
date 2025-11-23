@@ -1,4 +1,9 @@
+import Banner from "../../components/ResourcesComponents/Banner/Banner";
 const ResourcesPage = () => {
-  return <></>;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
 export default ResourcesPage;
