@@ -1,6 +1,7 @@
 import Header from "./components/layout/Header/Header";
 import BottomSection from "./components/layout/Bottom/BottomSection";
 import Footer from "./components/layout/Footer/Footer";
+import ScrollToTopButton from "./components/UI/ScrollToTop/ScrollTop";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
@@ -43,6 +44,7 @@ function App() {
       <Header />
       <Outlet />
       <BottomSection />
+      <ScrollToTopButton />
       <Footer />
     </>
   );

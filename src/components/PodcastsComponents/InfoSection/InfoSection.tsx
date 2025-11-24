@@ -65,25 +65,27 @@ export default function InfoSection() {
                   alt={item.title}
                   className="rounded-xl w-full object-cover"
                 />
-
-                <p className="text-[#C7C7C7] max-w-xl">{item.description}</p>
-
-                <div className="grid grid-cols-3 gap-4 text-center bg-[#0F0F0F] border border-[#1E1E1E] px-6 py-4 rounded-xl">
-                  <div>
+                <div className="bg-[#0F0F0F] border border-[#1E1E1E] rounded-xl px-6 py-5">
+                  <p className="text-[#C7C7C7]">{item.description}</p>
+                </div>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-[#0F0F0F] border border-[#1E1E1E] px-6 py-4 rounded-xl">
                     <p className="text-[#98989A] text-sm">Total Episodes</p>
-                    <p className="text-white text-xl font-semibold">
+                    <p className="text-white text-xl font-semibold mt-1">
                       {item.stats.episodes}
                     </p>
                   </div>
-                  <div>
+
+                  <div className="bg-[#0F0F0F] border border-[#1E1E1E] px-6 py-4 rounded-xl">
                     <p className="text-[#98989A] text-sm">Avg Length</p>
-                    <p className="text-white text-xl font-semibold">
+                    <p className="text-white text-xl font-semibold mt-1">
                       {item.stats.length}
                     </p>
                   </div>
-                  <div>
+
+                  <div className="bg-[#0F0F0F] border border-[#1E1E1E] px-6 py-4 rounded-xl">
                     <p className="text-[#98989A] text-sm">Frequency</p>
-                    <p className="text-white text-xl font-semibold">
+                    <p className="text-white text-xl font-semibold mt-1">
                       {item.stats.frequency}
                     </p>
                   </div>
