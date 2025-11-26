@@ -1,4 +1,4 @@
-import { Twitter, Facebook, Linkedin, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Card from "../../UI/Card/Card";
 export default function GetInTouch() {
   return (
@@ -51,17 +51,6 @@ export default function GetInTouch() {
         <div className="space-y-4">
           <h2 className="text-white text-lg font-semibold">Connect with Us</h2>
           <Card />
-          {/* <div className="flex gap-3">
-            <button className="p-4 rounded-xl cursor-pointer bg-[#1A1A1A] hover:bg-[#222]">
-              <Twitter className="w-6 h-6 text-white" />
-            </button>
-            <button className="p-4 rounded-xl cursor-pointer bg-[#1A1A1A] hover:bg-[#222]">
-              <Facebook className="w-6 h-6 text-white" />
-            </button>
-            <button className="p-4 rounded-xl cursor-pointer bg-[#1A1A1A] hover:bg-[#222]">
-              <Linkedin className="w-6 h-6 text-white" />
-            </button>
-          </div> */}
         </div>
       </div>
     </section>
