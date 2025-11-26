@@ -1,4 +1,10 @@
+import GetInTouch from "../../components/ContactComponents/GetInTouchSection/GetInTouch";
+
 const ContactUs = () => {
-  return <></>;
+  return (
+    <>
+      <GetInTouch />
+    </>
+  );
 };
 export default ContactUs;
