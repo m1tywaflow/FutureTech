@@ -68,33 +68,33 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition-duration: 1.2s;
+    transition-duration: 0.3s;
     border-radius: 15px 0 15px 0px;
   }
   /* instagram*/
   .containerOne:hover {
     background-color: #d62976;
-    transition-duration: 1.2s;
+    transition-duration: 0.3s;
   }
   /* twitter*/
   .containerTwo:hover {
     background-color: #00acee;
-    transition-duration: 1.2s;
+    transition-duration: 0.3s;
   }
   /* linkdin*/
   .containerThree:hover {
     background-color: #0072b1;
-    transition-duration: 1.2s;
+    transition-duration: 0.3s;
   }
   /* Whatsapp*/
   .containerFour:hover {
     background-color: #f90101;
-    transition-duration: 1.2s;
+    transition-duration: 0.3s;
   }
 
   .socialContainer:active {
     transform: scale(0.9);
-    transition-duration: 1.2s;
+    transition-duration: 0.2s;
   }
 
   .socialSvg {
@@ -106,7 +106,7 @@ const StyledWrapper = styled.div`
   }
 
   .socialContainer:hover .socialSvg {
-    animation: slide-in-top 1.2s both;
+    animation: slide-in-top 0.6s both;
   }
 
   @keyframes slide-in-top {
