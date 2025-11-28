@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import abstractDesign from "../../../assets/HomeImg/Explore/abstractDesign.png";
 import peoples from "../../../assets/HomeImg/Explore/peoples4.png";
-
+import { Link } from "react-router-dom";
 interface CounterProps {
   end: number;
   duration?: number;
@@ -106,9 +106,13 @@ export default function ExploreSection() {
                 </p>
               </div>
             </div>
-            <button className="mt-4 px-5 py-2 border border-[#262626] rounded-lg text-sm flex items-center gap-2 hover:bg-gray-800 transition cursor-pointer duration-200">
+
+            <Link
+              to="/coming-soon"
+              className="mt-4  inline-flex px-5 py-2 border border-[#262626] rounded-lg text-sm  items-center gap-2 hover:bg-gray-800 transition cursor-pointer duration-200"
+            >
               Explore Resources <span>↗</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

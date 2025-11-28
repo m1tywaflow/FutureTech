@@ -8,6 +8,7 @@ export const ROUTER_PATHS = {
   PODCASTS: "/podcasts-page",
   RESOURCES: "/resources",
   CONTACT: "/contact-us",
+  COMINGSOON: "/coming-soon",
   NOTFOUND: "*",
 };
 
@@ -19,6 +20,7 @@ const PodcastsPage = lazy(() => import("./pages/PodcastsPage/PodcastsPage"));
 const ResourcesPage = lazy(() => import("./pages/ResourcesPage/ResourcesPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage/ContactPage"));
 const NotFoundPage = lazy(() => import("./pages/404/NotFoundPage"));
+const ComingSoonPage = lazy(() => import("./pages/ComingSoon/ComingSoonPage"));
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.CONTACT, element: <ContactPage /> },
       { path: ROUTER_PATHS.BLOG, element: <BlogPage /> },
       { path: ROUTER_PATHS.NOTFOUND, element: <NotFoundPage /> },
+      { path: ROUTER_PATHS.COMINGSOON, element: <ComingSoonPage /> },
     ],
   },
 ]);

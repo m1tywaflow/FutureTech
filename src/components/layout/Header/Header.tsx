@@ -5,10 +5,10 @@ export default function Header() {
   return (
     <header className="w-full bg-[#0F0F0F] text-white">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src={logoImg} alt="logo" className="w-8 h-8" />
           <h1 className="text-lg font-semibold">FutureTech</h1>
-        </div>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           <NavLink
