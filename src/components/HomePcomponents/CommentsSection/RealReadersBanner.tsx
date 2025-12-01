@@ -1,4 +1,5 @@
 import { MoveUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function RealReaders() {
   return (
@@ -12,9 +13,13 @@ export default function RealReaders() {
             Real Words from Real Readers
           </h1>
         </div>
-        <button className="flex items-center justify-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 cursor-pointer text-sm font-light">
-          View All Testimonials <MoveUpRight className="w-5 h-5 text-yellow-500" />
-        </button>
+        <Link
+          to="/coming-soon"
+          className="flex items-center justify-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 cursor-pointer text-sm font-light"
+        >
+          View All Testimonials
+          <MoveUpRight className="w-5 h-5 text-yellow-500" />
+        </Link>
       </div>
     </section>
   );

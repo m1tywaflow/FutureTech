@@ -20,25 +20,21 @@ const footerLinks: {
     { label: "Features", href: "/features" },
     { label: "Blogs", href: "/blog" },
     { label: "Resources", href: "/resources", isNew: true },
-    { label: "Testimonials", href: "/testimonials" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Newsletter", href: "/newsletter" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "Newsletter", href: "/news-letter" },
   ],
   news: [
-    { label: "Trending Stories" },
+    { label: "Trending Stories", href: "/trending-stories" },
     { label: "Featured Videos" },
     { label: "Technology" },
-    { label: "Health" },
     { label: "Politics" },
-    { label: "Environment" },
   ],
   blogs: [
-    { label: "Quantum Computing", href: "/blogs/quantum-computing" },
+    {
+      label: "The Rise of Artificial Intelligence in Healthcare",
+      href: "/blog",
+    },
     { label: "AI Ethics", href: "/blogs/ai-ethics" },
-    { label: "Space Exploration", href: "/blogs/space-exploration" },
-    { label: "Biotechnology" },
-    { label: "Renewable Energy", href: "/blogs/renewable-energy" },
-    { label: "Biohacking", href: "/blogs/biohacking" },
   ],
   podcasts: [
     { label: "AI Revolution", href: "/podcasts/ai-revolution" },
@@ -127,10 +123,16 @@ export default function Footer() {
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
         <div className="flex gap-6 mb-4 md:mb-0">
-          <Link to={safeHref()} className="hover:text-white transition-colors">
+          <Link
+            to="/terms-conditions"
+            className="hover:text-white transition-colors"
+          >
             Terms & Conditions
           </Link>
-          <Link to={safeHref()} className="hover:text-white transition-colors">
+          <Link
+            to="/privacy-policy"
+            className="hover:text-white transition-colors"
+          >
             Privacy Policy
           </Link>
         </div>
