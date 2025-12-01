@@ -25,9 +25,7 @@ const footerLinks: {
   ],
   news: [
     { label: "Trending Stories", href: "/trending-stories" },
-    { label: "Featured Videos" },
-    { label: "Technology" },
-    { label: "Politics" },
+    { label: "Politics", href: "/politics" },
   ],
   blogs: [
     {

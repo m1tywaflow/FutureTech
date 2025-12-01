@@ -14,6 +14,7 @@ export const ROUTER_PATHS = {
   PRIVACYPOLICY: "/privacy-policy",
   NEWSLETTER: "/news-letter",
   TRENDINGSTORIES: "/trending-stories",
+  POLITICS: "/politics",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -37,6 +38,7 @@ const NewsLetterPage = lazy(
 const TrendingStoriesPage = lazy(
   () => import("./pages/NEWS/TrendingStories/TrendingStoriesPage")
 );
+const PoliticsPage = lazy(() => import("./pages/NEWS/Politics/PoliticsPage"));
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.PRIVACYPOLICY, element: <PrivacyPolicyPage /> },
       { path: ROUTER_PATHS.NEWSLETTER, element: <NewsLetterPage /> },
       { path: ROUTER_PATHS.TRENDINGSTORIES, element: <TrendingStoriesPage /> },
+      { path: ROUTER_PATHS.POLITICS, element: <PoliticsPage /> },
     ],
   },
 ]);
