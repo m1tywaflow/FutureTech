@@ -32,7 +32,7 @@ const footerLinks: {
       label: "The Rise of Artificial Intelligence in Healthcare",
       href: "/blog",
     },
-    { label: "AI Ethics", href: "/blogs/ai-ethics" },
+    { label: "AI Ethics", href: "/ai-ethics" },
   ],
   podcasts: [
     { label: "AI Revolution", href: "/podcasts/ai-revolution" },
