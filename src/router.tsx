@@ -16,6 +16,8 @@ export const ROUTER_PATHS = {
   TRENDINGSTORIES: "/trending-stories",
   POLITICS: "/politics",
   AIETHICS: "/ai-ethics",
+  AIREVO: "/ai-revolution",
+  TECHTALK: "/tech-talk-ai",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -43,6 +45,12 @@ const PoliticsPage = lazy(() => import("./pages/NEWS/Politics/PoliticsPage"));
 const AIEthicsPage = lazy(
   () => import("./pages/BLOGS/AiEthicsPage/AiEthicsPage")
 );
+const AIRevolutionPage = lazy(
+  () => import("./pages/PodcastsPack/AiRevo/AIRevolutionPage")
+);
+const TechTalkPage = lazy(
+  () => import("./pages/PodcastsPack/TechTalkAi/TechTalkPage")
+);
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +70,8 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.TRENDINGSTORIES, element: <TrendingStoriesPage /> },
       { path: ROUTER_PATHS.POLITICS, element: <PoliticsPage /> },
       { path: ROUTER_PATHS.AIETHICS, element: <AIEthicsPage /> },
+      { path: ROUTER_PATHS.AIREVO, element: <AIRevolutionPage /> },
+      { path: ROUTER_PATHS.TECHTALK, element: <TechTalkPage /> },
     ],
   },
 ]);

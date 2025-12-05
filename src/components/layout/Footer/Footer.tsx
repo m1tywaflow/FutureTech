@@ -35,9 +35,8 @@ const footerLinks: {
     { label: "AI Ethics", href: "/ai-ethics" },
   ],
   podcasts: [
-    { label: "AI Revolution", href: "/podcasts/ai-revolution" },
-    { label: "AI Revolution (New)", isNew: true },
-    { label: "TechTalk AI", href: "/podcasts/techtalk-ai" },
+    { label: "AI Revolution (New)", href: "/ai-revolution", isNew: true },
+    { label: "TechTalk AI", href: "/tech-talk-ai" },
     { label: "AI Conversations", href: "/podcasts/ai-conversations" },
   ],
   resources: [
