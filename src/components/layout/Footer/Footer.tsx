@@ -37,7 +37,7 @@ const footerLinks: {
   podcasts: [
     { label: "AI Revolution (New)", href: "/ai-revolution", isNew: true },
     { label: "TechTalk AI", href: "/tech-talk-ai" },
-    { label: "AI Conversations", href: "/podcasts/ai-conversations" },
+    { label: "AI Conversations", href: "/ai-conversations" },
   ],
   resources: [
     { label: "Whitepapers" },
