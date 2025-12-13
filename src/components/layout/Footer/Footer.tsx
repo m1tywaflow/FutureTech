@@ -40,10 +40,9 @@ const footerLinks: {
     { label: "AI Conversations", href: "/ai-conversations" },
   ],
   resources: [
-    { label: "Whitepapers" },
-    { label: "Ebooks" },
-    { label: "Reports" },
-    { label: "Research Papers" },
+    { label: "Ebooks", href: "/ebooks" },
+    { label: "Reports", href: "/reports" },
+    { label: "Research Papers", href: "/research-papers" },
   ],
 };
 

@@ -19,6 +19,9 @@ export const ROUTER_PATHS = {
   AIREVO: "/ai-revolution",
   TECHTALK: "/tech-talk-ai",
   AICONVER: "/ai-conversations",
+  EBOOKS: "/ebooks",
+  REPORTS: "/reports",
+  RESEARCH: "/research-papers",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -55,6 +58,15 @@ const TechTalkPage = lazy(
 const AiConversationsPage = lazy(
   () => import("./pages/PodcastsPack/AiConversations/AiConversationsPage")
 );
+const EbooksPage = lazy(
+  () => import("./pages/ResourcesPack/EbooksPage/EbooksPage")
+);
+const ReportsPage = lazy(
+  () => import("./pages/ResourcesPack/ReportsPage/ReportsPage")
+);
+const ResearchPage = lazy(
+  () => import("./pages/ResourcesPack/ResearchPapersPage/ResearchPage")
+);
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +89,9 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.AIREVO, element: <AIRevolutionPage /> },
       { path: ROUTER_PATHS.TECHTALK, element: <TechTalkPage /> },
       { path: ROUTER_PATHS.AICONVER, element: <AiConversationsPage /> },
+      { path: ROUTER_PATHS.EBOOKS, element: <EbooksPage /> },
+      { path: ROUTER_PATHS.REPORTS, element: <ReportsPage /> },
+      { path: ROUTER_PATHS.RESEARCH, element: <ResearchPage /> },
     ],
   },
 ]);

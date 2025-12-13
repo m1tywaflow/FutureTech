@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MessageSquare, Cpu, Zap, Satellite, Radio } from "lucide-react";
 
 export default function TechTalkAI() {
@@ -116,14 +117,15 @@ export default function TechTalkAI() {
         <p className="mt-4 text-yellow-200/80 text-lg">
           Stay updated on new episodes, discussions, and AI deep dives.
         </p>
-
-        <motion.button
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 bg-yellow-500 text-black font-semibold px-8 py-3 rounded-xl hover:bg-yellow-400 transition shadow-lg"
-        >
-          Subscribe
-        </motion.button>
+        <Link to="/news-letter">
+          <motion.button
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-8 bg-yellow-500 text-black font-semibold px-8 py-3 rounded-xl hover:bg-yellow-400 transition shadow-lg"
+          >
+            Subscribe
+          </motion.button>
+        </Link>
       </motion.section>
     </div>
   );
