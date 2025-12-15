@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import getInTouchIcon from "../../../assets/ContactUs/Icons/getintouchIcon.png";
 
@@ -23,8 +23,9 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+type ContactFormProps = {};
 
-export default function ContactForm() {
+const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
   const {
     register,
     handleSubmit,
@@ -37,16 +38,17 @@ export default function ContactForm() {
   const [sent, setSent] = useState(false);
 
   const onSubmit = (data: FormData) => {
-    console.log("Form Submitted:", data);
-
+    console.log(data);
     setSent(true);
     reset();
-
     setTimeout(() => setSent(false), 3000);
   };
 
   return (
-    <section className="w-full bg-[#0B0B0B] py-20 px-6 border border-[#1E1E1E] ">
+    <section
+      ref={ref}
+      className="w-full bg-[#0B0B0B] py-20 px-6 border border-[#1E1E1E] "
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1  lg:grid-cols-2 gap-12 ">
         <div className="flex flex-col justify-center ">
           <img src={getInTouchIcon} className="w-14 mb-8" />
@@ -151,4 +153,5 @@ export default function ContactForm() {
       </div>
     </section>
   );
-}
+});
+export default ContactForm;

@@ -5,7 +5,7 @@ import firstBigImg from "../../../assets/Resources/img/f-bigImage.png";
 import secondIcon from "../../../assets/Resources/Icons/WhitepapersIcon.png";
 import secondUsers from "../../../assets/Resources/users/s-users.png";
 import secondBigImg from "../../../assets/Resources/img/s-bigImage.png";
-
+import { Link } from "react-router-dom";
 export default function FutureResources() {
   return (
     <section className="w-full bg-[#0D0D0D] text-white flex flex-col items-center justify-center">
@@ -19,10 +19,13 @@ export default function FutureResources() {
               future technology topics.
             </p>
           </div>
-          <button className="flex items-center justify-center cursor-pointer gap-2 bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 text-sm font-light w-fit">
+          <Link
+            to="/ebooks"
+            className="flex items-center justify-center cursor-pointer gap-2 bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 text-sm font-light w-fit"
+          >
             Download Ebooks Now
             <MoveUpRight className="w-5 h-5 text-yellow-500" />
-          </button>
+          </Link>
           <div className="flex items-center gap-4 bg-[#141414] border border-[#1E1E1E] rounded-2xl px-4 py-3 w-fit">
             <div className="flex flex-col">
               <span className="text-sm text-[#A3A3A3]">Downloaded By</span>
@@ -87,10 +90,13 @@ export default function FutureResources() {
               of whitepapers.
             </p>
           </div>
-          <button className="flex items-center justify-center cursor-pointer gap-2 bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 text-sm font-light w-fit">
+          <Link
+            to="/ebooks"
+            className="flex items-center justify-center cursor-pointer gap-2 bg-[#1E1E1E] border border-[#2A2A2A] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 text-sm font-light w-fit"
+          >
             Download Whitepapers Now
             <MoveUpRight className="w-5 h-5 text-yellow-500" />
-          </button>
+          </Link>
           <div className="flex items-center gap-4 bg-[#141414] border border-[#1E1E1E] rounded-2xl px-4 py-3 w-fit">
             <div className="flex flex-col">
               <span className="text-sm text-[#A3A3A3]">Downloaded By</span>

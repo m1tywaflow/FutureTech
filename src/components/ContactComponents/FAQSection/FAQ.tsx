@@ -27,8 +27,10 @@ const faqData = [
     answer: "We release new episodes weekly. Stay tuned!",
   },
 ];
-
-export default function FAQ() {
+type FAQProps = {
+  onAskClick: () => void;
+};
+export default function FAQ({ onAskClick }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -46,9 +48,11 @@ export default function FAQ() {
             contact us personally, we will resolve your respective doubts.
           </p>
 
-          <button className="bg-[#111] text-white px-6 py-3 rounded-lg border border-[#1F1F1F] hover:bg-[#161616] transition flex items-center gap-2 w-fit">
-            Ask Question
-            <span>↗</span>
+          <button
+            onClick={onAskClick}
+            className="bg-[#111] text-white px-6 py-3 rounded-lg hover:bg-amber-400 hover:text-black transition duration-200 cursor-pointer"
+          >
+            Ask Question ↗
           </button>
         </div>
         <div className="space-y-4">
