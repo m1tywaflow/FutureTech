@@ -22,6 +22,7 @@ export const ROUTER_PATHS = {
   EBOOKS: "/ebooks",
   REPORTS: "/reports",
   RESEARCH: "/research-papers",
+  FEATURES: "/features",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -67,6 +68,7 @@ const ReportsPage = lazy(
 const ResearchPage = lazy(
   () => import("./pages/ResourcesPack/ResearchPapersPage/ResearchPage")
 );
+const FeaturesPage = lazy(() => import("./pages/HomePack/FeaturesPage"));
 
 export const router = createBrowserRouter([
   {
@@ -92,6 +94,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.EBOOKS, element: <EbooksPage /> },
       { path: ROUTER_PATHS.REPORTS, element: <ReportsPage /> },
       { path: ROUTER_PATHS.RESEARCH, element: <ResearchPage /> },
+      { path: ROUTER_PATHS.FEATURES, element: <FeaturesPage /> },
     ],
   },
 ]);
