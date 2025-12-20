@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Brain, Cpu, Sparkles, ShieldCheck, LineChart, Zap } from "lucide-react";
+import {
+  Brain,
+  Cpu,
+  Sparkles,
+  ShieldCheck,
+  LineChart,
+  Zap,
+} from "lucide-react";
 
 const features = [
   {
@@ -43,14 +50,12 @@ const features = [
 export default function Features() {
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-[#1a1a0f] via-[#14140b] to-black text-yellow-100 overflow-hidden">
-      {/* Glow background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl" />
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,11 +66,11 @@ export default function Features() {
             FutureTech AI
           </h1>
           <p className="mt-6 text-lg md:text-xl text-yellow-200/80 max-w-3xl mx-auto">
-            Discover the powerful features that make <span className="text-yellow-300 font-semibold">FutureTech</span> the next generation AI platform.
+            Discover the powerful features that make{" "}
+            <span className="text-yellow-300 font-semibold">FutureTech</span>{" "}
+            the next generation AI platform.
           </p>
         </motion.div>
-
-        {/* Features grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -95,8 +100,6 @@ export default function Features() {
             );
           })}
         </div>
-
-        {/* Call to action */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +111,8 @@ export default function Features() {
             Build the Future with AI
           </h2>
           <p className="text-yellow-200/80 max-w-2xl mx-auto mb-8">
-            Join FutureTech and start leveraging artificial intelligence to innovate faster and smarter.
+            Join FutureTech and start leveraging artificial intelligence to
+            innovate faster and smarter.
           </p>
           <button className="px-8 py-4 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition shadow-lg shadow-yellow-500/30">
             Get Started
