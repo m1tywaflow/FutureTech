@@ -1,6 +1,8 @@
 import Card from "../../UI/Card/Card";
 import CopyButton from "../../UI/CopyButton/CopyButton";
 import { ArrowUpRight } from "lucide-react";
+import Tooltip from "../../UI/Location/LocationType";
+
 export default function GetInTouch() {
   return (
     <section className="w-full bg-[#0D0D0D] py-16">
@@ -20,6 +22,7 @@ export default function GetInTouch() {
           <CopyButton value="+1 (123) 456-7890" />
         </div>
         <div className="space-y-4">
+          <Tooltip />
           <h2 className="text-white text-lg font-semibold">Our Office</h2>
           <p className="text-gray-400 leading-relaxed">
             Address: 123 AI Tech Avenue, Techville, 54321
