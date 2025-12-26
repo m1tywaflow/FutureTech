@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Heart, MessageSquare, Eye, ArrowUpRight } from "lucide-react";
-
+import { Link } from "react-router-dom";
 type BlogPost = {
   id: number;
   author: string;
@@ -146,10 +146,10 @@ const BlogTabs = () => {
                 </div>
               </div>
             </div>
-            <button className="flex items-center justify-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 cursor-pointer text-sm font-light">
+            <Link to="/blog" className="flex items-center justify-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition duration-200 cursor-pointer text-sm font-light">
               View Blog
               <ArrowUpRight className="w-4 h-4 text-yellow-500" />
-            </button>
+            </Link>
           </div>
         ))}
       </div>
