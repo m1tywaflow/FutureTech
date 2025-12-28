@@ -1,7 +1,7 @@
 import trendsImg from "../../../assets/Resources/img/RowImg/trendsImg.png";
 import spaceImg from "../../../assets/Resources/img/RowImg/spaceImg.png";
 import quantumImg from "../../../assets/Resources/img/RowImg/quantumImg.png";
-
+import { Link } from "react-router-dom";
 export default function RowImg() {
   const ImgBox = [
     {
@@ -43,12 +43,18 @@ export default function RowImg() {
             <p className="text-gray-400">{item.description}</p>
 
             <div className="flex gap-4 mt-4">
-              <button className="px-6 py-3 border border-yellow-400 rounded-xl hover:bg-[#1A1A1A] transition duration-300 cursor-pointer">
+              <Link
+                to="/ebooks"
+                className="px-6 py-3 border border-yellow-400 rounded-xl hover:bg-[#1A1A1A] transition duration-300 cursor-pointer"
+              >
                 View Details
-              </button>
-              <button className="px-6 py-3 border border-yellow-400 rounded-xl hover:bg-[#1A1A1A] transition duration-300 cursor-pointer">
+              </Link>
+              <Link
+                to="/ebooks"
+                className="px-6 py-3 border border-yellow-400 rounded-xl hover:bg-[#1A1A1A] transition duration-300 cursor-pointer"
+              >
                 Download PDF Now
-              </button>
+              </Link>
             </div>
           </div>
         ))}

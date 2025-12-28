@@ -3,6 +3,7 @@ import convIcon from "../../../assets/Podcasts/icons/convIcon.png";
 import firstBigImg from "../../../assets/Podcasts/bigImg/fistBig.png";
 import secondBigImg from "../../../assets/Podcasts/bigImg/secondBig.png";
 import StarsRating from "../../UI/StarRating/StarsRating";
+import { Link } from "react-router-dom";
 export default function InfoSection() {
   const podcasts = [
     {
@@ -55,9 +56,12 @@ export default function InfoSection() {
                 <p className="text-[#98989A] text-sm">
                   Host: <span className="text-white">{item.host}</span>
                 </p>
-                <button className="px-4 py-2 border border-[#1E1E1E] rounded-md bg-[#0F0F0F] w-fit hover:bg-[#1A1A1A] transition">
+                <Link
+                  to="/coming-soon"
+                  className="px-4 py-2 border border-[#1E1E1E] rounded-md bg-[#0F0F0F] w-fit hover:bg-[#1A1A1A] transition"
+                >
                   Listen Podcast →
-                </button>
+                </Link>
               </div>
               <div className="flex flex-col p-12 gap-6">
                 <img
