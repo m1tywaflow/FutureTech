@@ -46,10 +46,6 @@ export default function BlogInfoSec() {
               and CT scans. They can identify anomalies and deviations that
               might be overlooked by the human eye.
             </p>
-
-            <button className="mt-4 border border-white/15 px-5 py-2 rounded-lg text-sm hover:bg-white/10 transition">
-              Read Full Blog →
-            </button>
           </div>
         </div>
         <aside className="space-y-8">
