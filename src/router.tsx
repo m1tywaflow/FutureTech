@@ -23,6 +23,9 @@ export const ROUTER_PATHS = {
   REPORTS: "/reports",
   RESEARCH: "/research-papers",
   FEATURES: "/features",
+  DECISIVE: "/decisive",
+  TECHGIANTS: "/tech-giants-ai",
+  COVID: "/covid-variants",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -69,6 +72,13 @@ const ResearchPage = lazy(
   () => import("./pages/ResourcesPack/ResearchPapersPage/ResearchPage")
 );
 const FeaturesPage = lazy(() => import("./pages/HomePack/FeaturesPage"));
+const DecisivePage = lazy(
+  () => import("./pages/BlogPage/Decesive/DecesivePage")
+);
+const TechGiantsPage = lazy(
+  () => import("./pages/BlogPage/TechGiants/TechGiantsPage")
+);
+const CovidPage = lazy(() => import("./pages/BlogPage/Covid/CovidPage"));
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +105,9 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.REPORTS, element: <ReportsPage /> },
       { path: ROUTER_PATHS.RESEARCH, element: <ResearchPage /> },
       { path: ROUTER_PATHS.FEATURES, element: <FeaturesPage /> },
+      { path: ROUTER_PATHS.DECISIVE, element: <DecisivePage /> },
+      { path: ROUTER_PATHS.TECHGIANTS, element: <TechGiantsPage /> },
+      { path: ROUTER_PATHS.COVID, element: <CovidPage /> },
     ],
   },
 ]);

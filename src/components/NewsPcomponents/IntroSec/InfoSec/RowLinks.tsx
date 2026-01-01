@@ -11,6 +11,7 @@ interface Card {
   category: string;
   likes: number;
   comments: number;
+  link: string;
 }
 
 export default function RowLinks() {
@@ -22,6 +23,7 @@ export default function RowLinks() {
       category: "Politics",
       likes: 12,
       comments: 60,
+      link: "/decisive",
     },
     {
       id: 2,
@@ -30,6 +32,7 @@ export default function RowLinks() {
       category: "Technology",
       likes: 34,
       comments: 92,
+      link: "/tech-giants-ai",
     },
     {
       id: 3,
@@ -38,6 +41,7 @@ export default function RowLinks() {
       category: "Health",
       likes: 45,
       comments: 124,
+      link: "/covid-variants",
     },
   ];
 
@@ -63,12 +67,13 @@ export default function RowLinks() {
                 <span>💬 {card.comments}</span>
               </div>
 
-              <button
+              <a
+                href={card.link}
                 className="flex items-center gap-1 bg-transparent border border-[#2A2A2A] text-[#98989A] px-3 py-1 rounded-lg hover:border-[#FFD600] hover:text-[#FFD600] transition cursor-pointer"
                 aria-label={`Read more about ${card.title}`}
               >
                 Read More <ArrowUpRight size={16} />
-              </button>
+              </a>
             </div>
           </div>
         ))}
