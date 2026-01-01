@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, ShieldCheck, Sparkles } from "lucide-react";
-
+import { Link } from "react-router-dom";
 export default function Decisive() {
   return (
     <div className="min-h-screen bg-black text-yellow-400">
@@ -27,10 +27,10 @@ export default function Decisive() {
               future depends on how intentionally we design it.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="flex items-center gap-2 rounded-2xl bg-yellow-400 px-6 py-3 font-semibold text-black hover:bg-yellow-300">
+              <button className="flex cursor-pointer items-center gap-2 rounded-2xl border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400/10">
                 Explore <ArrowRight className="h-4 w-4" />
               </button>
-              <button className="rounded-2xl border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400/10">
+              <button className="rounded-2xl cursor-pointer border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400/10">
                 Manifesto
               </button>
             </div>
@@ -104,9 +104,12 @@ export default function Decisive() {
               Progressive AI policy is not limitation — it is acceleration with
               direction. The systems we design today define tomorrow’s society.
             </p>
-            <button className="w-fit rounded-xl bg-black px-6 py-3 font-semibold text-yellow-400 hover:bg-zinc-800">
-              Read the Vision
-            </button>
+            <Link
+              to="/"
+              className="w-fit cursor-pointer rounded-xl bg-black px-6 py-3 font-semibold text-yellow-400 hover:bg-zinc-800"
+            >
+              Back to Home
+            </Link>
           </motion.section>
         </div>
       </main>

@@ -119,7 +119,7 @@ export default function CovidInfo() {
               href="/"
               className="w-fit rounded-xl bg-black px-6 py-3 font-semibold text-yellow-400 hover:bg-zinc-800"
             >
-              Back to News
+              Back to Home
             </a>
           </motion.section>
         </div>

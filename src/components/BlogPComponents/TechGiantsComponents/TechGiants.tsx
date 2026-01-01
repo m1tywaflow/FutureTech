@@ -7,7 +7,7 @@ export default function TechGiants() {
       <header className="sticky top-0 z-50 border-b border-yellow-400/20 bg-black/80 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a
-            href="/"
+            href="/blog"
             className="flex items-center gap-2 text-yellow-300 hover:text-yellow-400"
           >
             <ArrowLeft size={18} /> Back
@@ -117,7 +117,7 @@ export default function TechGiants() {
               href="/"
               className="w-fit rounded-xl bg-black px-6 py-3 font-semibold text-yellow-400 hover:bg-zinc-800"
             >
-              Back to News
+              Back to Home
             </a>
           </motion.section>
         </div>
