@@ -27,12 +27,12 @@ export default function Decisive() {
               future depends on how intentionally we design it.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="flex cursor-pointer items-center gap-2 rounded-2xl border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400/10">
+              <Link
+                to="/coming-soon"
+                className="flex cursor-pointer items-center gap-2 rounded-2xl border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400 hover:text-black transition duration-200"
+              >
                 Explore <ArrowRight className="h-4 w-4" />
-              </button>
-              <button className="rounded-2xl cursor-pointer border border-yellow-400/40 px-6 py-3 text-yellow-300 hover:bg-yellow-400/10">
-                Manifesto
-              </button>
+              </Link>
             </div>
           </motion.section>
 

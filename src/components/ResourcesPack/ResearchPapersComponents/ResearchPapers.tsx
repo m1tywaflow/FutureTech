@@ -74,21 +74,22 @@ export default function ResearchPapers() {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="#"
+                  href="*"
                   className="flex items-center gap-2 bg-yellow-400 text-black font-semibold px-4 py-2 rounded-xl hover:bg-yellow-300 transition"
                 >
                   <ExternalLink size={16} />
                   Read
                 </motion.a>
 
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  href="*"
                   className="flex items-center gap-2 bg-neutral-800 text-white px-4 py-2 rounded-xl hover:bg-neutral-700 transition"
                 >
                   <BookMarked size={16} />
                   Save
-                </motion.button>
+                </motion.a>
               </div>
             </div>
           </motion.div>

@@ -63,14 +63,15 @@ export default function Ebooks() {
 
             <p className="text-gray-400 mb-6">{ebook.desc}</p>
 
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              href="*"
               className="w-full flex items-center justify-center gap-2 bg-yellow-400 text-black font-semibold py-3 rounded-xl hover:bg-yellow-300 transition"
             >
               <Download size={18} />
               Download
-            </motion.button>
+            </motion.a>
           </motion.div>
         ))}
       </div>
