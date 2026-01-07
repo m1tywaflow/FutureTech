@@ -108,7 +108,7 @@ export default function ExploreSection() {
             </div>
 
             <Link
-              to="/coming-soon"
+              to="/resources"
               className="mt-4  inline-flex px-5 py-2 border border-[#262626] rounded-lg text-sm  items-center gap-2 hover:bg-gray-800 transition cursor-pointer duration-200"
             >
               Explore Resources <span>↗</span>
