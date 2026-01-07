@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import peoplesImg from "../../../assets/something/peoples.png";
+import { Link } from "react-router-dom";
 export default function Politics() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-20 bg-black text-white">
@@ -91,9 +92,12 @@ export default function Politics() {
           shaping the digital future.
         </p>
 
-        <button className="px-6 py-3 rounded-2xl border border-yellow-500 text-yellow-400 font-semibold shadow-lg hover:bg-yellow-500 hover:text-black transition">
+        <Link
+          to="/"
+          className="px-6 py-3 rounded-2xl border border-yellow-500 text-yellow-400 font-semibold shadow-lg hover:bg-yellow-500 hover:text-black transition"
+        >
           Start Your Journey
-        </button>
+        </Link>
       </motion.div>
     </section>
   );
