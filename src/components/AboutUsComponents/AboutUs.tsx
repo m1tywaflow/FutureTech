@@ -1,16 +1,23 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 1) => ({
+const fadeUp = (delay = 0): Variants => ({
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.8, ease: "easeOut" },
-  }),
-};
+    transition: {
+      delay,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+});
 
 export default function AboutPage() {
   const { scrollYProgress } = useScroll();
@@ -35,24 +42,18 @@ export default function AboutPage() {
 
       <div className="mx-auto max-w-7xl px-6 py-28">
         <motion.div
+          variants={fadeUp(0)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="mb-32 max-w-4xl"
         >
-          <motion.h1
-            variants={fadeUp}
-            className="mb-6 text-4xl font-extrabold md:text-6xl"
-          >
+          <motion.h1 className="mb-6 text-4xl font-extrabold md:text-6xl">
             Explore the Frontiers of{" "}
             <span className="text-yellow-400">Artificial Intelligence</span>
           </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            custom={2}
-            className="text-lg text-gray-300"
-          >
+          <motion.p className="text-lg text-gray-300">
             FutureTech AI News is your gateway into a world where machines
             think, learn, and reshape reality.
           </motion.p>
@@ -66,11 +67,10 @@ export default function AboutPage() {
           ].map((item, i) => (
             <motion.div
               key={item.label}
-              variants={fadeUp}
+              variants={fadeUp(i * 0.15)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={i + 1}
               className="rounded-2xl border border-yellow-400/20 bg-yellow-400/5 p-8 text-center backdrop-blur"
             >
               <div className="mb-2 text-4xl font-bold text-yellow-400">
@@ -94,11 +94,10 @@ export default function AboutPage() {
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              variants={fadeUp}
+              variants={fadeUp(i * 0.2)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={i + 1}
               className="rounded-2xl border border-yellow-400/20 bg-yellow-400/5 p-8"
             >
               <h2 className="mb-4 text-2xl font-semibold text-yellow-400">
@@ -123,11 +122,10 @@ export default function AboutPage() {
             ].map(([year, text], i) => (
               <motion.div
                 key={year}
-                variants={fadeUp}
+                variants={fadeUp(i * 0.15)}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={i + 1}
                 className="relative"
               >
                 <span className="absolute -left-[42px] top-1 h-4 w-4 rounded-full bg-yellow-400" />
@@ -148,12 +146,11 @@ export default function AboutPage() {
           ].map(([title, text], i) => (
             <motion.div
               key={title}
-              variants={fadeUp}
+              variants={fadeUp(i * 0.15)}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              custom={i + 1}
               className="rounded-2xl border border-white/10 bg-gradient-to-br from-yellow-400/10 to-transparent p-8"
             >
               <h3 className="mb-3 text-xl font-semibold text-yellow-400">
@@ -165,7 +162,7 @@ export default function AboutPage() {
         </div>
 
         <motion.div
-          variants={fadeUp}
+          variants={fadeUp(0)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
