@@ -26,6 +26,7 @@ export const ROUTER_PATHS = {
   DECISIVE: "/decisive",
   TECHGIANTS: "/tech-giants-ai",
   COVID: "/covid-variants",
+  ABOUTUS: "/about-us",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -79,6 +80,7 @@ const TechGiantsPage = lazy(
   () => import("./pages/BlogPage/TechGiants/TechGiantsPage")
 );
 const CovidPage = lazy(() => import("./pages/BlogPage/Covid/CovidPage"));
+const AboutUsPage = lazy(() => import("./pages/AboutUs/AboutUsPage"));
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +110,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.DECISIVE, element: <DecisivePage /> },
       { path: ROUTER_PATHS.TECHGIANTS, element: <TechGiantsPage /> },
       { path: ROUTER_PATHS.COVID, element: <CovidPage /> },
+      { path: ROUTER_PATHS.ABOUTUS, element: <AboutUsPage /> },
     ],
   },
 ]);

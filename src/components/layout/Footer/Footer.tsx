@@ -22,6 +22,7 @@ const footerLinks: {
     { label: "Resources", href: "/resources", isNew: true },
     { label: "Contact Us", href: "/contact-us" },
     { label: "Newsletter", href: "/news-letter" },
+     { label: "About Us", href: "/about-us" },
   ],
   news: [
     { label: "Trending Stories", href: "/trending-stories" },
