@@ -27,6 +27,8 @@ export const ROUTER_PATHS = {
   TECHGIANTS: "/tech-giants-ai",
   COVID: "/covid-variants",
   ABOUTUS: "/about-us",
+  EXPERTS: "/experts",
+  IMPACT: "/impact",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -81,6 +83,8 @@ const TechGiantsPage = lazy(
 );
 const CovidPage = lazy(() => import("./pages/BlogPage/Covid/CovidPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUs/AboutUsPage"));
+const ExpertsPage = lazy(() => import("./pages/ExpertsPage/ExpertsPage"));
+const ImpactPage = lazy(() => import("./pages/Impact/ImpactPage"));
 
 export const router = createBrowserRouter([
   {
@@ -111,6 +115,8 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.TECHGIANTS, element: <TechGiantsPage /> },
       { path: ROUTER_PATHS.COVID, element: <CovidPage /> },
       { path: ROUTER_PATHS.ABOUTUS, element: <AboutUsPage /> },
+      { path: ROUTER_PATHS.EXPERTS, element: <ExpertsPage /> },
+      { path: ROUTER_PATHS.IMPACT, element: <ImpactPage /> },
     ],
   },
 ]);

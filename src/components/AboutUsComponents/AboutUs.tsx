@@ -58,7 +58,80 @@ export default function AboutPage() {
             think, learn, and reshape reality.
           </motion.p>
         </motion.div>
+        <div className="mb-32 grid gap-16 md:grid-cols-2">
+          <motion.div
+            variants={fadeUp(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <span className="mb-4 inline-block rounded-full border border-yellow-400/30 px-4 py-1 text-sm text-yellow-400">
+              Our Story
+            </span>
 
+            <h2 className="mb-6 text-3xl font-bold leading-tight">
+              How <span className="text-yellow-400">FutureTech</span> Was Born
+            </h2>
+
+            <p className="mb-6 text-gray-300 leading-relaxed">
+              FutureTech AI News started as a simple question:
+              <span className="text-white">
+                {" "}
+                what happens when artificial intelligence stops being a tool and
+                becomes a force?
+              </span>
+            </p>
+
+            <p className="text-gray-300 leading-relaxed">
+              As AI systems began generating text, images, code, and decisions,
+              we realized that the world needed more than headlines. It needed
+              context, depth, and critical thinking. That’s when FutureTech was
+              created — not as another news site, but as a navigation system for
+              the AI era.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp(0.25)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="rounded-2xl border border-yellow-400/20 bg-yellow-400/5 p-8 backdrop-blur"
+          >
+            <h3 className="mb-4 text-xl font-semibold text-yellow-400">
+              Why We Exist
+            </h3>
+
+            <ul className="space-y-4 text-gray-300">
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400" />
+                <span>To explain AI beyond buzzwords and marketing noise.</span>
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400" />
+                <span>To track real breakthroughs, not hype cycles.</span>
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400" />
+                <span>
+                  To explore how AI reshapes society, work, creativity, and
+                  power.
+                </span>
+              </li>
+
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-yellow-400" />
+                <span>
+                  To help humans stay ahead in a world driven by intelligent
+                  machines.
+                </span>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
         <div className="mb-32 grid gap-10 md:grid-cols-3">
           {[
             { value: "10K+", label: "Monthly Readers" },
@@ -80,7 +153,6 @@ export default function AboutPage() {
             </motion.div>
           ))}
         </div>
-
         <div className="mb-32 grid gap-16 md:grid-cols-2">
           {[
             {
@@ -107,7 +179,6 @@ export default function AboutPage() {
             </motion.div>
           ))}
         </div>
-
         <div className="mb-32">
           <h2 className="mb-16 text-center text-3xl font-bold">
             AI Evolution Timeline
@@ -137,7 +208,6 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-
         <div className="mb-32 grid gap-10 md:grid-cols-3">
           {[
             ["Curiosity", "We explore beyond the obvious."],
@@ -160,7 +230,6 @@ export default function AboutPage() {
             </motion.div>
           ))}
         </div>
-
         <motion.div
           variants={fadeUp(0)}
           initial="hidden"
@@ -174,7 +243,6 @@ export default function AboutPage() {
           <p className="mb-8 text-gray-300">
             The future is written in code — and it starts now.
           </p>
-
           <Link to="/">
             <motion.button
               whileHover={{ scale: 1.05 }}
