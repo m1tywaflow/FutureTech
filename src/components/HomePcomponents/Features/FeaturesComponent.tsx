@@ -7,6 +7,7 @@ import {
   LineChart,
   Zap,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -114,9 +115,12 @@ export default function Features() {
             Join FutureTech and start leveraging artificial intelligence to
             innovate faster and smarter.
           </p>
-          <button className="px-8 py-4 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition shadow-lg shadow-yellow-500/30">
+          <Link
+            to="/ai-conversations"
+            className="px-8 py-4 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition shadow-lg shadow-yellow-500/30"
+          >
             Get Started
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>
