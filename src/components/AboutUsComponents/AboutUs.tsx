@@ -243,13 +243,13 @@ export default function AboutPage() {
           <p className="mb-8 text-gray-300">
             The future is written in code — and it starts now.
           </p>
-          <Link to="/">
+          <Link to="/roadmap">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="rounded-xl bg-yellow-400 px-10 py-4 font-semibold text-black shadow-lg shadow-yellow-400/30"
             >
-              Back to Home
+              See Project Roadmap
             </motion.button>
           </Link>
         </motion.div>

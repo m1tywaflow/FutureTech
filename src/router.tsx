@@ -29,6 +29,7 @@ export const ROUTER_PATHS = {
   ABOUTUS: "/about-us",
   EXPERTS: "/experts",
   IMPACT: "/impact",
+  ROADMAP: "/roadmap",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -85,6 +86,7 @@ const CovidPage = lazy(() => import("./pages/BlogPage/Covid/CovidPage"));
 const AboutUsPage = lazy(() => import("./pages/AboutUs/AboutUsPage"));
 const ExpertsPage = lazy(() => import("./pages/ExpertsPage/ExpertsPage"));
 const ImpactPage = lazy(() => import("./pages/Impact/ImpactPage"));
+const RoadPage = lazy(() => import("./pages/RoadMapPage/RoadPage"));
 
 export const router = createBrowserRouter([
   {
@@ -117,6 +119,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.ABOUTUS, element: <AboutUsPage /> },
       { path: ROUTER_PATHS.EXPERTS, element: <ExpertsPage /> },
       { path: ROUTER_PATHS.IMPACT, element: <ImpactPage /> },
+      { path: ROUTER_PATHS.ROADMAP, element: <RoadPage /> },
     ],
   },
 ]);

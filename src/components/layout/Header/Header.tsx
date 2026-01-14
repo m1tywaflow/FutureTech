@@ -37,16 +37,14 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-6">
           {[
-            { to: "/", label: "Home", end: true },
             { to: "/news-page", label: "News" },
             { to: "/podcasts-page", label: "Podcasts" },
             { to: "/resources", label: "Resources" },
             { to: "/blog", label: "Blog" },
-          ].map(({ to, label, end }) => (
+          ].map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
-              end={end}
               className={({ isActive }) =>
                 isActive
                   ? "px-3 py-1 rounded-md bg-[#1A1A1A] text-sm font-medium"
