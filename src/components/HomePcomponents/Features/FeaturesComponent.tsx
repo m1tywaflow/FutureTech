@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
   Brain,
   Cpu,
@@ -49,8 +49,17 @@ const features = [
 ];
 
 export default function Features() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-[#1a1a0f] via-[#14140b] to-black text-yellow-100 overflow-hidden">
+      <motion.div
+        style={{ scaleX }}
+        className="fixed left-0 top-0 z-50 h-1 w-full origin-left bg-yellow-400"
+      />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl" />
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl" />

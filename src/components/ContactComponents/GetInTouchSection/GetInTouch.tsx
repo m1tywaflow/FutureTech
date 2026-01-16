@@ -3,6 +3,7 @@ import CopyButton from "../../UI/CopyButton/CopyButton";
 import { ArrowUpRight } from "lucide-react";
 import Tooltip from "../../UI/Location/LocationType";
 
+
 export default function GetInTouch() {
   return (
     <section className="w-full bg-[#0D0D0D] py-16">
@@ -37,6 +38,7 @@ export default function GetInTouch() {
             <ArrowUpRight className="w-4 h-4 text-yellow-400" />
           </a>
         </div>
+
         <div className="space-y-4">
           <h2 className="text-white text-lg font-semibold">Connect with Us</h2>
           <Card />
