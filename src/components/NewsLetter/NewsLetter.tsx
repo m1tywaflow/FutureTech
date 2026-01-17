@@ -1,22 +1,42 @@
 import { useState } from "react";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const emailSchema = z.string().email({ message: "Invalid email address" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
       emailSchema.parse(email);
+      setError("");
+      setLoading(true);
+
+      await emailjs.send(
+        "service_865cb2m",
+        "template_17e7rom",
+        {
+          subscriber_email: email,
+        },
+        "vnd2W1SFLNPKC6mIt"
+      );
+
       setSubmitted(true);
       setEmail("");
-      setError("");
     } catch (err: any) {
-      setError(err.errors[0].message);
+      if (err?.errors) {
+        setError(err.errors[0].message);
+      } else {
+        setError("Failed to send email. Try again.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,30 +60,24 @@ export default function Newsletter() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
             className={`w-full sm:w-72 px-4 py-3 rounded-lg bg-[#111111] border ${
               error ? "border-red-500" : "border-[#1E1E1E]"
-            } text-white focus:outline-none focus:ring-2 focus:ring-yellow-500`}
+            } text-white`}
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition-colors"
+            disabled={loading}
+            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg disabled:opacity-50"
           >
-            Subscribe
+            {loading ? "Sending..." : "Subscribe"}
           </button>
         </form>
 
         {error && <p className="text-red-500 mt-2">{error}</p>}
         {submitted && !error && (
-          <p className="text-green-400 mt-4">Thank you for subscribing!</p>
+          <p className="text-green-400 mt-4">Email sent to admin ✔</p>
         )}
-
-        <p className="text-gray-500 text-sm">
-          You can unsubscribe at any time. Read our{" "}
-          <a href="/privacy-policy" className="underline hover:text-white">
-            Privacy Policy
-          </a>
-          .
-        </p>
       </div>
     </div>
   );
