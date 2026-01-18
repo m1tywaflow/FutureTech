@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import imgRowFirst from "../../../../assets/NewsPageImg/heroSec/imgRow1.png";
 import imgRowSecond from "../../../../assets/NewsPageImg/heroSec/imgRow2.png";
 import imgRowThird from "../../../../assets/NewsPageImg/heroSec/imgRow3.png";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import LikeButton from "../../../UI/LikesBtn/LikeButton";
 
 interface Card {
