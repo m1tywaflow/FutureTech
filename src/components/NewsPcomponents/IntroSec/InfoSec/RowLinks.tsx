@@ -4,6 +4,7 @@ import imgRowSecond from "../../../../assets/NewsPageImg/heroSec/imgRow2.png";
 import imgRowThird from "../../../../assets/NewsPageImg/heroSec/imgRow3.png";
 import { ArrowUpRight } from "lucide-react";
 import LikeButton from "../../../UI/LikesBtn/LikeButton";
+import { ArrowDownWideNarrow } from "lucide-react";
 
 interface Card {
   id: number;
@@ -18,6 +19,8 @@ interface Card {
 export default function RowLinks() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
+  type SortType = "likes" | "comments";
+  const [sortBy, setSortBy] = useState<SortType>("likes");
   const cards: Card[] = [
     {
       id: 1,
@@ -120,37 +123,74 @@ export default function RowLinks() {
       );
     }
 
-    return [...result].sort((a, b) => b.likes - a.likes);
-  }, [activeCategory, cards, search]);
+    return [...result].sort((a, b) => {
+      if (sortBy === "likes") {
+        return b.likes - a.likes;
+      }
+      if (sortBy === "comments") {
+        return b.comments - a.comments;
+      }
+      return 0;
+    });
+  }, [activeCategory, cards, search, sortBy]);
 
   return (
     <section className="w-full bg-[#0D0D0D] text-white px-6 py-20">
-      <div className="flex justify-center gap-4 mb-6 flex-wrap">
-        <input
-          type="text"
-          placeholder="Search by title..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="px-4 py-2 rounded-lg border border-[#2A2A2A] bg-[#111111] text-white placeholder-[#98989A] focus:outline-none focus:border-[#FFD600]"
-        />
+      <div className="flex flex-col gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <input
+            type="text"
+            placeholder="Search news..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full md:max-w-sm px-4 py-2 rounded-lg border border-[#2A2A2A] 
+      bg-[#111111] text-white placeholder-[#98989A] 
+      focus:outline-none focus:border-[#FFD600]"
+          />
+          <div className="flex gap-3">
+            <button
+              onClick={() => setSortBy("likes")}
+              className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
+          ${
+            sortBy === "likes"
+              ? "border-[#FFD600] text-[#FFD600]"
+              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+          }`}
+            >
+              Likes <ArrowDownWideNarrow className="w-4 h-4" />
+            </button>
+
+            <button
+              onClick={() => setSortBy("comments")}
+              className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
+          ${
+            sortBy === "comments"
+              ? "border-[#FFD600] text-[#FFD600]"
+              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+          }`}
+            >
+              Comments <ArrowDownWideNarrow className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-center gap-3 flex-wrap">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-1 rounded-full border text-sm transition
+          ${
+            activeCategory === category
+              ? "border-[#FFD600] text-[#FFD600]"
+              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+          }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="flex justify-center gap-4 mb-10 flex-wrap">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-16 py-1 rounded-lg border transition cursor-pointer hover:border-[#7c7345] hover:text-[#635b33]
-              ${
-                activeCategory === category
-                  ? "border-[#FFD600] text-[#FFD600]"
-                  : "border-[#2A2A2A] text-[#98989A]"
-              }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {filteredCards.map((card) => (
           <div

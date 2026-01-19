@@ -1,28 +1,38 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import { lenis } from "../../types/lenisInstance";
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setVisible(window.scrollY > 300);
+    const onScroll = ({ scroll }: { scroll: number }) => {
+      setVisible(scroll > 300);
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    lenis.on("scroll", onScroll);
+    return () => {
+      lenis.off("scroll", onScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    lenis.scrollTo(0, { duration: 1.2 });
   };
+
+  if (!visible) return null;
 
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 p-3 rounded-full bg-[#FFD600] text-black shadow-lg transition transform hover:scale-110 ${
-        visible ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      aria-label="Scroll to top"
+      className="
+        fixed bottom-6 right-6 p-3 rounded-full
+        bg-[#FFD600] text-black
+        shadow-lg z-50
+        transition-transform duration-300
+        hover:scale-110
+      "
     >
       <ArrowUp size={20} />
     </button>
