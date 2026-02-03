@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Heart, MessageSquare, Eye, ArrowUpRight } from "lucide-react";
+import { MessageSquare, Eye, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import LikeButton from "@/components/UI/LikesBtn/LikeButton";
 
 type BlogPost = {
   id: number;
@@ -11,14 +12,15 @@ type BlogPost = {
   date: string;
   title: string;
   description: string;
-  likes: string;
+  likes: number;
+  isLiked: boolean;
   comments: number;
   views: number;
 };
 
 const categories = ["All", "Quantum Computing", "Space Exploration"];
 
-const blogPosts: BlogPost[] = [
+const initialPosts: BlogPost[] = [
   {
     id: 1,
     author: "John Techson",
@@ -28,7 +30,8 @@ const blogPosts: BlogPost[] = [
     title: "The Quantum Leap in Computing",
     description:
       "Explore the revolution in quantum computing, its applications, and its potential impact on various industries.",
-    likes: "24.5k",
+    likes: 24500,
+    isLiked: false,
     comments: 50,
     views: 20,
   },
@@ -41,7 +44,8 @@ const blogPosts: BlogPost[] = [
     title: "Breaking Barriers with Quantum AI",
     description:
       "How quantum algorithms are redefining machine learning and optimization problems.",
-    likes: "18k",
+    likes: 18000,
+    isLiked: false,
     comments: 40,
     views: 15,
   },
@@ -54,7 +58,8 @@ const blogPosts: BlogPost[] = [
     title: "Quantum Supremacy: What It Really Means",
     description:
       "A deep dive into Google's and IBM's quantum breakthroughs — what quantum supremacy actually represents for the future of computation.",
-    likes: "27k",
+    likes: 27000,
+    isLiked: false,
     comments: 66,
     views: 25,
   },
@@ -67,7 +72,8 @@ const blogPosts: BlogPost[] = [
     title: "The Mars Colonization Challenge",
     description:
       "Exploring the technical and logistical challenges of human colonization on Mars.",
-    likes: "20k",
+    likes: 20000,
+    isLiked: false,
     comments: 31,
     views: 12,
   },
@@ -80,7 +86,8 @@ const blogPosts: BlogPost[] = [
     title: "The Future of Deep Space Travel",
     description:
       "How AI and renewable energy technologies will redefine our next missions to the outer solar system and beyond.",
-    likes: "22.3k",
+    likes: 22300,
+    isLiked: false,
     comments: 44,
     views: 17,
   },
@@ -102,11 +109,26 @@ const itemVariants = {
 
 const BlogTabs = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const [posts, setPosts] = useState(initialPosts);
+
+  const toggleLike = (id: number) => {
+    setPosts((prev) =>
+      prev.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              isLiked: !post.isLiked,
+              likes: post.isLiked ? post.likes - 1 : post.likes + 1,
+            }
+          : post
+      )
+    );
+  };
 
   const filteredPosts =
     activeTab === "All"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === activeTab);
+      ? posts
+      : posts.filter((post) => post.category === activeTab);
 
   return (
     <div className="w-full max-w-7xl mx-auto py-8 text-white">
@@ -136,6 +158,7 @@ const BlogTabs = () => {
           </button>
         ))}
       </div>
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
@@ -158,25 +181,32 @@ const BlogTabs = () => {
                   alt={post.author}
                   className="w-16 h-16 rounded-full object-cover"
                 />
+
                 <div>
                   <p className="text-sm text-neutral-400">
                     {post.author} • {post.category}
                   </p>
                   <p className="text-xs text-neutral-500 mt-1">{post.date}</p>
+
                   <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
+
                   <p className="text-neutral-400 text-sm mt-1">
                     {post.description}
                   </p>
-                  <div className="flex items-center gap-4 mt-3 text-neutral-400 text-sm">
-                    <span className="flex items-center gap-1">
-                      <Heart className="w-4 h-4 text-red-500" />
-                      {post.likes}
-                    </span>
-                    <span className="flex items-center gap-1">
+
+                  <div className="flex items-center gap-4 mt-3 text-sm">
+                    <LikeButton
+                      likes={post.likes}
+                      liked={post.isLiked}
+                      onToggle={() => toggleLike(post.id)}
+                    />
+
+                    <span className="flex items-center gap-1 text-neutral-400">
                       <MessageSquare className="w-4 h-4" />
                       {post.comments}
                     </span>
-                    <span className="flex items-center gap-1">
+
+                    <span className="flex items-center gap-1 text-neutral-400">
                       <Eye className="w-4 h-4" />
                       {post.views}
                     </span>
