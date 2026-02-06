@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import imgRowFirst from "../../../../assets/NewsPageImg/heroSec/imgRow1.png";
 import imgRowSecond from "../../../../assets/NewsPageImg/heroSec/imgRow2.png";
 import imgRowThird from "../../../../assets/NewsPageImg/heroSec/imgRow3.png";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageSquareMore } from "lucide-react";
 import LikeButton from "../../../UI/LikesBtn/LikeButton";
 import { ArrowDownWideNarrow } from "lucide-react";
 
@@ -215,7 +215,10 @@ export default function RowLinks() {
             <div className="mt-auto flex items-center justify-between">
               <div className="flex items-center gap-6 py-4 text-[#98989A]">
                 <LikeButton likes={card.likes} />
-                <span>💬 {card.comments}</span>
+                <span className="flex gap-1">
+                  <MessageSquareMore className="w-6 h-6 text-yellow-400 " />
+                  {card.comments}
+                </span>
               </div>
 
               <a

@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import abstractDesign from "../../../assets/HomeImg/Explore/abstractDesign.png";
 import peoples from "../../../assets/HomeImg/Explore/peoples4.png";
 import { Link } from "react-router-dom";
+import RoalingCards from "@/components/UI/RoalingCards/RoalingCards";
 interface CounterProps {
   end: number;
   duration?: number;
@@ -50,6 +51,7 @@ export default function ExploreSection() {
     <section className="w-full min-h-screen bg-[#0D0D0D] text-white flex items-center">
       <div className="container mx-auto lg:px-24 py-20 grid grid-cols-1 lg:grid-cols-2 items-center">
         <div className="px-6 md:px-12 lg:px-0">
+          <RoalingCards />
           <h3 className="text-[#666666] text-lg mb-4">
             Your Journey to Tomorrow Begins Here
           </h3>

@@ -1,4 +1,5 @@
 import ClimateImg from "../../../../assets/NewsPageImg/heroSec/climateAction.png";
+
 export default function InfoSection() {
   return (
     <section className="w-full text-white px-6 bg-[#0D0D0D]">
@@ -28,7 +29,6 @@ export default function InfoSection() {
                 <p className="font-semibold">Jane Smith</p>
               </div>
             </div>
-            <div></div>
           </div>
         </div>
       </div>

@@ -1,12 +1,29 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Cpu,
+  ShieldCheck,
+  Sparkles,
+  ArrowLeft,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 export default function Decisive() {
   return (
     <div className="min-h-screen bg-black text-yellow-400">
+      <header className="sticky top-0 z-50 border-b border-yellow-400/20 bg-black/80 backdrop-blur">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a
+            href="/blog"
+            className="flex items-center gap-2 text-yellow-300 hover:text-yellow-400"
+          >
+            <ArrowLeft size={18} /> Back
+          </a>
+          <span className="font-extrabold tracking-wider">AI FUTURETECH</span>
+          <span className="text-sm text-yellow-300">Politics</span>
+        </div>
+      </header>
       <main className="px-6 py-20">
         <div className="max-w-6xl mx-auto grid gap-24">
-          {/* Hero */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,7 +53,6 @@ export default function Decisive() {
             </div>
           </motion.section>
 
-          {/* Policy Pillars */}
           <section id="policy" className="grid md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-yellow-400/20 bg-zinc-900 p-6 grid gap-4">
               <Cpu className="h-10 w-10" />
@@ -63,7 +79,6 @@ export default function Decisive() {
             </div>
           </section>
 
-          {/* Impact */}
           <section id="impact" className="grid gap-8">
             <h2 className="text-3xl font-extrabold">Societal Impact</h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -89,7 +104,6 @@ export default function Decisive() {
             </div>
           </section>
 
-          {/* Vision */}
           <motion.section
             id="vision"
             initial={{ opacity: 0 }}
@@ -114,7 +128,6 @@ export default function Decisive() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-yellow-400/20 py-8 text-center text-sm text-yellow-300">
         © 2026 AI FutureTech · All futures are designed
       </footer>
