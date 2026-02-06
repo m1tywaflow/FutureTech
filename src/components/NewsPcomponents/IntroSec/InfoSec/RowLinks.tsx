@@ -137,25 +137,30 @@ export default function RowLinks() {
   return (
     <section className="w-full bg-[#0D0D0D] text-white px-6 py-20">
       <div className="flex flex-col gap-6 mb-12">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative">
           <input
             type="text"
             placeholder="Search news..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:max-w-sm px-4 py-2 rounded-lg border border-[#2A2A2A] 
-      bg-[#111111] text-white placeholder-[#98989A] 
-      focus:outline-none focus:border-[#FFD600]"
+            className="
+      w-full md:max-w-sm px-4 py-2 rounded-lg border border-[#2A2A2A]
+      bg-[#111111] text-white placeholder-[#98989A]
+      focus:outline-none focus:border-[#FFD600]
+
+      md:absolute md:left-1/2 md:-translate-x-1/2
+    "
           />
-          <div className="flex gap-3">
+
+          <div className="flex gap-3 md:ml-auto">
             <button
               onClick={() => setSortBy("likes")}
               className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
-          ${
-            sortBy === "likes"
-              ? "border-[#FFD600] text-[#FFD600]"
-              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
-          }`}
+        ${
+          sortBy === "likes"
+            ? "border-[#FFD600] text-[#FFD600]"
+            : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+        }`}
             >
               Likes <ArrowDownWideNarrow className="w-4 h-4" />
             </button>
@@ -163,16 +168,17 @@ export default function RowLinks() {
             <button
               onClick={() => setSortBy("comments")}
               className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
-          ${
-            sortBy === "comments"
-              ? "border-[#FFD600] text-[#FFD600]"
-              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
-          }`}
+        ${
+          sortBy === "comments"
+            ? "border-[#FFD600] text-[#FFD600]"
+            : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+        }`}
             >
               Comments <ArrowDownWideNarrow className="w-4 h-4" />
             </button>
           </div>
         </div>
+
         <div className="flex justify-center gap-3 flex-wrap">
           {categories.map((category) => (
             <button
