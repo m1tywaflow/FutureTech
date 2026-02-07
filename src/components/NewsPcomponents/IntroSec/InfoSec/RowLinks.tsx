@@ -155,7 +155,7 @@ export default function RowLinks() {
           <div className="flex gap-3 md:ml-auto">
             <button
               onClick={() => setSortBy("likes")}
-              className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
+              className={`px-6 py-2 flex items-center gap-2  border transition
         ${
           sortBy === "likes"
             ? "border-[#FFD600] text-[#FFD600]"
@@ -167,7 +167,7 @@ export default function RowLinks() {
 
             <button
               onClick={() => setSortBy("comments")}
-              className={`px-6 py-2 flex items-center gap-2 rounded-lg border transition
+              className={`px-6 py-2 flex items-center gap-2  border transition
         ${
           sortBy === "comments"
             ? "border-[#FFD600] text-[#FFD600]"
