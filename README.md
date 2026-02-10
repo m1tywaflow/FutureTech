@@ -42,7 +42,7 @@ Can be extended into a full-featured AI portal in the future
 
 🚀 Live Demo
 
-🔗 Live: Click[https://future-tech-eosin.vercel.app/] 🔗 Repository: Click[https://github.com/m1tywaflow/FutureTech]
+🔗 Live: [Click](https://future-tech-eosin.vercel.app/) 🔗 Repository: [Click](https://github.com/m1tywaflow/FutureTech)
 
 ⸻
 
