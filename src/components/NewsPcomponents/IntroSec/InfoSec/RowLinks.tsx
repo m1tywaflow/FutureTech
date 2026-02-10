@@ -2,9 +2,8 @@ import { useMemo, useState } from "react";
 import imgRowFirst from "../../../../assets/NewsPageImg/heroSec/imgRow1.png";
 import imgRowSecond from "../../../../assets/NewsPageImg/heroSec/imgRow2.png";
 import imgRowThird from "../../../../assets/NewsPageImg/heroSec/imgRow3.png";
-import { ArrowUpRight, MessageSquareMore } from "lucide-react";
-import LikeButton from "../../../UI/LikesBtn/LikeButton";
 import { ArrowDownWideNarrow } from "lucide-react";
+import StripeNewsCard from "@/components/UI/RowLinkCards/StripeNewsCard";
 
 interface Card {
   id: number;
@@ -197,39 +196,9 @@ export default function RowLinks() {
         </div>
       </div>
 
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {filteredCards.map((card) => (
-          <div
-            key={card.id}
-            className="bg-[#111111] rounded-2xl p-4 hover:bg-[#1A1A1A] transition flex flex-col h-full"
-          >
-            <img
-              src={card.img}
-              alt={card.title}
-              className="w-full h-48 object-cover rounded-xl"
-            />
-
-            <h2 className="text-lg font-semibold mt-4">{card.title}</h2>
-            <p className="text-sm text-[#98989A]">{card.category}</p>
-
-            <div className="mt-auto flex items-center justify-between">
-              <div className="flex items-center gap-6 py-4 text-[#98989A]">
-                <LikeButton likes={card.likes} />
-                <span className="flex gap-1">
-                  <MessageSquareMore className="w-6 h-6 text-yellow-400 " />
-                  {card.comments}
-                </span>
-              </div>
-
-              <a
-                href={card.link}
-                className="flex items-center gap-1 border border-[#2A2A2A] px-3 py-1 rounded-lg
-                  hover:border-[#FFD600] hover:text-[#FFD600] transition"
-              >
-                Read More <ArrowUpRight size={16} />
-              </a>
-            </div>
-          </div>
+          <StripeNewsCard key={card.id} card={card} />
         ))}
       </div>
     </section>
