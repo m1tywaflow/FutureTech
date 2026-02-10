@@ -21,7 +21,6 @@ export default function StripeNewsCard({ card }: { card: Card }) {
           }}
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300"
         />
-
         <img
           src={card.img}
           alt={card.title}
@@ -30,26 +29,21 @@ export default function StripeNewsCard({ card }: { card: Card }) {
             rounded-lg object-cover transition-all duration-300"
         />
       </figure>
-
       <article className="p-4 space-y-2">
         <div className="h-8 px-3 inline-flex items-center text-sm rounded-md bg-[#FFD600] text-black font-medium">
           {card.category}
         </div>
-
         <h2 className="text-xl font-semibold leading-tight">{card.title}</h2>
-
         <div className="flex items-center gap-4 text-sm text-[#98989A]">
           <span className="flex items-center gap-1">
             <Heart size={16} className="text-yellow-300" />
             {card.likes}
           </span>
-
           <span className="flex items-center gap-1">
             <MessageSquareMore size={16} className="text-yellow-400" />
             {card.comments}
           </span>
         </div>
-
         <a
           href={card.link}
           className="text-[#FFD600] font-normal opacity-0 group-hover:opacity-100
