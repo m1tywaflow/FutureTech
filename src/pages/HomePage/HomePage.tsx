@@ -16,12 +16,12 @@ const HomePage = () => {
       <LinkSection />
       <FutureBanner />
       <FutureTech />
-      <BlogPosts />
-      <BlogTabs />
       <ResourcesBanner />
       <FutureResources />
       <RealReaders />
       <AllComments />
+      <BlogPosts />
+      <BlogTabs />
     </>
   );
 };
