@@ -40,7 +40,7 @@ export default function Header() {
             { to: "/news-page", label: "News" },
             { to: "/podcasts-page", label: "Podcasts" },
             { to: "/resources", label: "Resources" },
-            { to: "/blog", label: "Blog" },
+            { to: "/global", label: "Models" },
           ].map(({ to, label }) => (
             <NavLink
               key={to}

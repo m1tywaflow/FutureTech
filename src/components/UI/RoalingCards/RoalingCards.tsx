@@ -61,11 +61,11 @@ const RoalingCards = () => {
 const StyledWrapper = styled.div`
   .wrapper {
     width: 100%;
-    height: 420px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .inner {
@@ -97,12 +97,14 @@ const StyledWrapper = styled.div`
     position: absolute;
     inset: 0;
     border-radius: 16px;
+
     background: linear-gradient(
       145deg,
-      rgba(40, 40, 40, 0.9),
-      rgba(20, 20, 20, 0.9)
+      rgba(139, 92, 246, 0.35),
+      rgba(88, 28, 135, 0.6)
     );
-    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(168, 85, 247, 0.3);
 
     display: flex;
     align-items: center;
@@ -111,7 +113,8 @@ const StyledWrapper = styled.div`
     transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
       translateZ(var(--translateZ));
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3),
+      inset 0 0 40px rgba(139, 92, 246, 0.15);
   }
 
   .content {

@@ -1,16 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+type Message = {
+  id: string;
+  from: "user" | "ai";
+  text: string;
+};
+
 export default function AIConversations() {
-  const [messages, setMessages] = useState<
-    Array<{ id: string; from: "user" | "ai"; text: string }>
-  >([
+  const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
       from: "ai",
       text: "Hello! I'm your AI assistant. What would you like to talk about?",
     },
-    { id: "2", from: "user", text: "Tell me your best UX practices." },
   ]);
 
   const [input, setInput] = useState("");
@@ -22,30 +25,7 @@ export default function AIConversations() {
     }
   }, [messages]);
 
-  const send = () => {
-    if (!input.trim()) return;
-
-    const userMessage = {
-      id: String(Date.now()),
-      from: "user",
-      text: input.trim(),
-    } as const;
-
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-
-    setTimeout(() => {
-      const aiMessage = {
-        id: String(Date.now() + 1),
-        from: "ai",
-        text: generateAIReply(userMessage.text),
-      } as const;
-
-      setMessages((prev) => [...prev, aiMessage]);
-    }, 700 + Math.random() * 600);
-  };
-
-  const generateAIReply = (prompt: string) => {
+  const generateAIReply = useCallback((prompt: string) => {
     const replies = [
       "Interesting topic — here are a few ideas:",
       "Focus on clarity, simplicity, and fast feedback loops.",
@@ -55,23 +35,54 @@ export default function AIConversations() {
     return `${
       replies[Math.floor(Math.random() * replies.length)]
     } (reply to: "${prompt}")`;
-  };
+  }, []);
+
+  const send = useCallback(() => {
+    if (!input.trim()) return;
+
+    const userMessage: Message = {
+      id: String(Date.now()),
+      from: "user",
+      text: input.trim(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+
+    setTimeout(() => {
+      const aiMessage: Message = {
+        id: String(Date.now() + 1),
+        from: "ai",
+        text: generateAIReply(userMessage.text),
+      };
+
+      setMessages((prev) => [...prev, aiMessage]);
+    }, 600);
+  }, [input, generateAIReply]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-950 via-amber-900/80 to-black text-gray-100 flex items-center justify-center p-6">
-      <div className="w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden ring-1 ring-amber-700/40 backdrop-blur-xl bg-black/30">
-        {/* Header */}
-        <div className="relative  from-amber-900/30 via-amber-700/20 to-transparent p-6 flex items-center gap-4">
+    <div className="min-h-screen bg-[#0a0a0f] text-gray-100 flex items-center justify-center p-6">
+      <div
+        className="w-full max-w-4xl rounded-3xl overflow-hidden 
+        bg-gradient-to-br from-purple-900/30 to-purple-800/10
+        border border-purple-500/30
+        shadow-[0_20px_80px_rgba(139,92,246,0.25)]"
+      >
+        <div className="p-6 flex items-center gap-4 border-b border-purple-500/20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="flex items-center gap-4"
           >
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+            <div
+              className="w-14 h-14 rounded-2xl 
+              bg-purple-500/10 
+              border border-purple-500/30 
+              flex items-center justify-center"
+            >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-amber-400"
+                className="w-8 h-8 text-purple-400"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.4"
@@ -80,17 +91,18 @@ export default function AIConversations() {
                 <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold text-amber-300 drop-shadow-md">
+
+            <h1
+              className="text-2xl font-bold 
+              bg-gradient-to-r from-purple-400 to-purple-600 
+              bg-clip-text text-transparent"
+            >
               AI Conversations
             </h1>
           </motion.div>
         </div>
 
-        {/* Chat area */}
-        <div
-          ref={listRef}
-          className="h-[60vh] overflow-y-auto p-6 space-y-4 scroll-smooth"
-        >
+        <div ref={listRef} className="h-[60vh] overflow-y-auto p-6 space-y-4">
           <AnimatePresence>
             {messages.map((msg) => (
               <motion.div
@@ -104,12 +116,12 @@ export default function AIConversations() {
                 }`}
               >
                 <div
-                  className={`max-w-[75%] p-4 rounded-2xl text-sm shadow-lg backdrop-blur-md border
-                    ${
-                      msg.from === "user"
-                        ? "bg-amber-500/20 border-amber-400/40 text-amber-200"
-                        : "bg-amber-900/40 border-amber-700/40 text-amber-100"
-                    }`}
+                  className={`max-w-[75%] p-4 rounded-2xl text-sm border
+                  ${
+                    msg.from === "user"
+                      ? "bg-purple-500/20 border-purple-400/40 text-purple-200"
+                      : "bg-purple-900/40 border-purple-700/40 text-purple-100"
+                  }`}
                 >
                   {msg.text}
                 </div>
@@ -118,19 +130,29 @@ export default function AIConversations() {
           </AnimatePresence>
         </div>
 
-        {/* Input */}
-        <div className="p-6 bg-black/20 border-t border-amber-800/30 flex items-center gap-4">
+        <div className="p-6 border-t border-purple-500/20 flex items-center gap-4">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && send()}
             placeholder="Type a message..."
-            className="flex-1 p-4 rounded-2xl bg-black/40 border border-amber-700/40 text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500/60 backdrop-blur"
+            className="flex-1 p-4 rounded-2xl 
+              bg-black/40 
+              border border-purple-500/30 
+              text-purple-200
+              focus:outline-none 
+              focus:ring-2 focus:ring-purple-500/60"
           />
+
           <motion.button
             onClick={send}
             whileTap={{ scale: 0.9 }}
-            className="px-6 py-3 rounded-2xl bg-amber-600/40 border border-amber-500/40 text-amber-100 font-medium hover:bg-amber-600/50 backdrop-blur shadow-lg"
+            className="px-6 py-3 rounded-2xl 
+              bg-gradient-to-r from-purple-500 to-purple-700
+              text-white font-medium
+              shadow-lg shadow-purple-500/30
+              hover:shadow-purple-500/50
+              transition"
           >
             Send
           </motion.button>

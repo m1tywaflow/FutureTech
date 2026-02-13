@@ -30,6 +30,7 @@ export const ROUTER_PATHS = {
   EXPERTS: "/experts",
   IMPACT: "/impact",
   ROADMAP: "/roadmap",
+  GLOBAL: "/global",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -87,6 +88,7 @@ const AboutUsPage = lazy(() => import("./pages/AboutUs/AboutUsPage"));
 const ExpertsPage = lazy(() => import("./pages/ExpertsPage/ExpertsPage"));
 const ImpactPage = lazy(() => import("./pages/Impact/ImpactPage"));
 const RoadPage = lazy(() => import("./pages/RoadMapPage/RoadPage"));
+const GlobalPage = lazy(() => import("./pages/GlobalPage/GlobalPage"));
 
 export const router = createBrowserRouter([
   {
@@ -120,6 +122,7 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.EXPERTS, element: <ExpertsPage /> },
       { path: ROUTER_PATHS.IMPACT, element: <ImpactPage /> },
       { path: ROUTER_PATHS.ROADMAP, element: <RoadPage /> },
+      { path: ROUTER_PATHS.GLOBAL, element: <GlobalPage /> },
     ],
   },
 ]);
