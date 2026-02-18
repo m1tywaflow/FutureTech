@@ -4,13 +4,13 @@ const AIModelsSection = () => {
   return (
     <section
       style={{
-        background: "#0a0a0f",
+        background:
+          "linear-gradient(to bottom, #0a0a0f 0%, #120f1f 50%, #140f22 100%)",
         padding: "200px 0",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Фиолетовый glow */}
       <div
         style={{
           position: "absolute",
@@ -35,7 +35,6 @@ const AIModelsSection = () => {
           padding: "0 20px",
         }}
       >
-        {/* Верхний блок текста */}
         <div style={{ textAlign: "center", marginBottom: "100px" }}>
           <h2
             style={{
@@ -50,8 +49,7 @@ const AIModelsSection = () => {
             <br />
             <span
               style={{
-                background:
-                  "linear-gradient(to right, #a855f7, #7c3aed)",
+                background: "linear-gradient(to right, #a855f7, #7c3aed)",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
               }}
@@ -69,13 +67,12 @@ const AIModelsSection = () => {
               lineHeight: "1.6",
             }}
           >
-            Stop switching between tools. Compare outputs, optimize prompts,
-            and deploy intelligence from GPT, Gemini, Claude, DeepSeek and
-            more — all inside one seamless ecosystem.
+            Stop switching between tools. Compare outputs, optimize prompts, and
+            deploy intelligence from GPT, Gemini, Claude, DeepSeek and more —
+            all inside one seamless ecosystem.
           </p>
         </div>
 
-        {/* Фичи */}
         <div
           style={{
             display: "grid",
@@ -106,8 +103,8 @@ const AIModelsSection = () => {
                 background:
                   "linear-gradient(145deg, rgba(139,92,246,0.15), rgba(88,28,135,0.25))",
                 border: "1px solid rgba(139,92,246,0.25)",
-                boxShadow:
-                  "0 10px 40px rgba(139,92,246,0.15)",
+                boxShadow: "0 10px 40px rgba(139,92,246,0.15)",
+                backdropFilter: "blur(10px)",
               }}
             >
               <h3
@@ -131,7 +128,6 @@ const AIModelsSection = () => {
           ))}
         </div>
 
-        {/* Колесо */}
         <RoalingCards />
       </div>
     </section>
