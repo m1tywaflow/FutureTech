@@ -1,7 +1,7 @@
 export default function Banner() {
   return (
-    <section className="w-full bg-[#0D0D0D] text-white px-6 py-20 text-center">
-      <div className="w-full border-b border-[#2A2A2A] pb-8">
+    <section className="w-full bg-[#0D0D0D] text-white px-6 py-36 text-center h-0">
+      <div className="w-full">
         <h1 className="text-5xl font-semibold">
           Unlock the World of Artificial Intelligence through Podcasts
         </h1>

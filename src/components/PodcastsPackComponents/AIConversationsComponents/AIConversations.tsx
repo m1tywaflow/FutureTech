@@ -102,7 +102,10 @@ export default function AIConversations() {
           </motion.div>
         </div>
 
-        <div ref={listRef} className="h-[60vh] overflow-y-auto p-6 space-y-4">
+        <div
+          ref={listRef}
+          className="h-[60vh] overflow-y-auto p-6 space-y-4 custom-scroll "
+        >
           <AnimatePresence>
             {messages.map((msg) => (
               <motion.div

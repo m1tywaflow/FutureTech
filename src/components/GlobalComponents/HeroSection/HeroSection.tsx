@@ -40,7 +40,10 @@ export default function HeroSection() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="mt-10 flex items-center justify-center gap-4"
         >
-          <Link to="/ai-conversations" className="px-8 py-4 rounded-2xl bg-white text-black font-medium hover:scale-105 transition">
+          <Link
+            to="/ai-conversations"
+            className="px-8 py-4 rounded-2xl bg-white text-black font-medium hover:scale-105 transition"
+          >
             Get Started
           </Link>
         </motion.div>

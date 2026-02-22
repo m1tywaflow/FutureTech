@@ -1,3 +1,5 @@
+"use client";
+
 const trendingStories = [
   {
     title: "AI Breakthroughs in 2025",
@@ -31,30 +33,46 @@ const trendingStories = [
 
 export default function TrendingStories() {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] text-gray-300 py-20 px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
-        <h1 className="text-4xl font-bold text-white text-center">
-          Trending Stories
-        </h1>
-        <p className="text-gray-400 text-center max-w-2xl mx-auto">
-          Stay informed with the most popular and impactful stories of the
-          moment.
-        </p>
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white py-36 px-6">
+      <div className="max-w-6xl mx-auto space-y-16">
+        <div className="text-center space-y-5">
+          <h1 className="text-5xl font-bold">
+            Trending{" "}
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+              Stories
+            </span>
+          </h1>
 
+          <p className="text-zinc-400 max-w-xl mx-auto">
+            Stay informed with the most popular and impactful stories shaping
+            the world right now.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 gap-8">
           {trendingStories.map((story, index) => (
             <div
               key={index}
-              className="bg-[#111111] p-6 rounded-2xl shadow-lg border border-[#1E1E1E] hover:scale-[1.02] transition-transform"
+              className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400/40 hover:shadow-[0_0_30px_rgba(250,204,21,0.12)]"
             >
-              <span className="text-yellow-400 text-sm font-semibold">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-yellow-400 to-orange-500 opacity-60 group-hover:opacity-100 transition" />
+              <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 mb-4">
                 {story.category}
               </span>
-              <h2 className="text-2xl font-semibold text-white mt-2 mb-2">
+              <h2 className="text-xl font-semibold mb-3 group-hover:text-yellow-300 transition">
                 {story.title}
               </h2>
-              <p className="text-gray-400 mb-4">{story.description}</p>
-              <span className="text-gray-500 text-sm">{story.date}</span>
+
+              <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                {story.description}
+              </p>
+
+              <div className="flex justify-between items-center text-xs text-zinc-500">
+                <span>{story.date}</span>
+
+                <span className="opacity-0 group-hover:opacity-100 transition text-yellow-400">
+                  Read →
+                </span>
+              </div>
             </div>
           ))}
         </div>
