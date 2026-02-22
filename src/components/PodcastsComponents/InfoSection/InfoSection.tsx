@@ -143,8 +143,8 @@ export default function InfoSection() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-8 py-24 text-white">
-      <div className="flex flex-col gap-16">
+    <section className="max-w-8xl mx-auto px-8 py-24 text-white">
+      <div className="flex gap-4">
         {podcasts.map((item, index) => (
           <div
             key={item.id}

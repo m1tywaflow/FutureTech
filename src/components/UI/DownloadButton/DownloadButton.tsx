@@ -31,9 +31,16 @@ const StyledWrapper = styled.div`
     cursor: pointer;
     display: flex;
     align-items: center;
-    border: 1px solid #17795e;
-    background-color: #DBD144;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem; /* 16px */
     overflow: hidden;
+  }
+  .button:hover {
+    border-color: rgba(250, 204, 21, 0.4);
+  }
+  .button:hover {
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.15);
   }
 
   .button,
@@ -44,7 +51,7 @@ const StyledWrapper = styled.div`
 
   .button .button__text {
     transform: translateX(22px);
-    color: #000;
+    color: #fff;
     font-weight: 600;
   }
 
@@ -53,7 +60,7 @@ const StyledWrapper = styled.div`
     transform: translateX(109px);
     height: 100%;
     width: 39px;
-    background-color: #17795e;
+    background-color: rgb(250, 204, 21);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,11 +68,11 @@ const StyledWrapper = styled.div`
 
   .button .svg {
     width: 20px;
-    fill: #fff;
+    fill: #000;
   }
 
   .button:hover {
-    background: #17795e;
+    background: rgb(250, 204, 21);
   }
 
   .button:hover .button__text {

@@ -1,6 +1,7 @@
 import logoImg from "../../../assets/logo/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import ContactButton from "@/components/UI/ContactButton/ContactButton";
 
 export default function Header() {
   const [show, setShow] = useState(true);
@@ -46,22 +47,16 @@ export default function Header() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                isActive
-                  ? "px-3 py-1 rounded-md bg-[#1A1A1A] text-sm font-medium"
-                  : "text-sm text-gray-400 hover:text-white transition"
-              }
+  isActive
+    ? "px-3 py-1 rounded-md outline-3 outline-[#181717] outline-offset-[-3px] bg-transparent text-white font-bold transition shadow-[0_0_10px_rgb(250,204,21)]"
+    : "text-sm text-gray-400 hover:text-white transition px-3 py-1 rounded-md"
+}
             >
               {label}
             </NavLink>
           ))}
         </nav>
-
-        <Link
-          to="/contact-us"
-          className="bg-[#FFD600] text-black text-sm font-medium px-4 py-2 rounded-md hover:bg-[#FFCC00] transition"
-        >
-          Contact Us
-        </Link>
+        <ContactButton />
       </div>
     </header>
   );
