@@ -49,12 +49,14 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
       ref={ref}
       className="w-full bg-[#0B0B0B] py-20 px-6 border border-[#1E1E1E] "
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1  lg:grid-cols-2 gap-12 ">
+      <div className="max-w-7xl mx-auto  gap-12 ">
         <div className="flex flex-col justify-center ">
-          <img src={getInTouchIcon} className="w-14 mb-8" />
-          <h2 className="text-4xl font-semibold text-white leading-snug">
-            Get in Touch <br /> with AI Podcasts
-          </h2>
+          <div className="flex justify-center gap-12">
+            <img src={getInTouchIcon} className="w-16 mb-8" />
+            <h2 className="text-4xl font-semibold text-white leading-snug">
+              Get in Touch  with AI Podcasts
+            </h2>
+          </div>
         </div>
 
         <div>

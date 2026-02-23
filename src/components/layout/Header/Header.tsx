@@ -47,10 +47,10 @@ export default function Header() {
               key={to}
               to={to}
               className={({ isActive }) =>
-  isActive
-    ? "px-3 py-1 rounded-md outline-3 outline-[#181717] outline-offset-[-3px] bg-transparent text-white font-bold transition shadow-[0_0_10px_rgb(250,204,21)]"
-    : "text-sm text-gray-400 hover:text-white transition px-3 py-1 rounded-md"
-}
+                isActive
+                  ? "px-3 py-1 rounded-md outline-3 outline-[#181717] outline-offset-[-3px] bg-transparent text-white font-bold transition shadow-[0_0_10px_rgb(250,204,21)]"
+                  : "text-sm text-gray-400 hover:text-white transition px-3 py-1 rounded-md"
+              }
             >
               {label}
             </NavLink>

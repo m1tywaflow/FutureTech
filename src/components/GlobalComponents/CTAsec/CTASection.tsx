@@ -7,7 +7,7 @@ export default function CTASection() {
   return (
     <section
       className="relative w-full py-32 
-                        bg-gradient-to-b from-[#0a0a0f] to-[#0f172a] 
+                        bg-gradient-to-b from-[#000000] to-[#5316fc] 
                         overflow-hidden flex justify-center items-center px-6"
     >
       <div

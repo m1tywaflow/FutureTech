@@ -25,7 +25,7 @@ export default function BottomSection() {
   ];
 
   return (
-    <section className="w-full bg-[#1A1A1A] py-16">
+    <section className="w-full max-h-fit bg-[#1A1A1A] py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="items-center flex flex-col lg:flex-row gap-12 mb-16">
           <div>
