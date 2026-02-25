@@ -11,9 +11,7 @@ app.use(express.json());
 
 type DeepSeekResponse = {
   choices: {
-    message: {
-      content: string;
-    };
+    content: string;
   }[];
 };
 
@@ -46,7 +44,7 @@ app.post("/chat", async (req, res) => {
     console.log("DeepSeek response:", data);
 
     res.json({
-      reply: data.choices?.[0]?.message?.content || "No response from AI",
+      reply: data.choices?.[0]?.content || "No response from AI",
     });
   } catch (err) {
     console.error("SERVER ERROR:", err);
