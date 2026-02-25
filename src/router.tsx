@@ -31,6 +31,12 @@ export const ROUTER_PATHS = {
   IMPACT: "/impact",
   ROADMAP: "/roadmap",
   GLOBAL: "/global",
+  QUANTUM: "/quantum-breakthrough",
+  DESIASES: "/ai-healthcare",
+  REFORMS: "/climate-reforms",
+  STARTUPS: "/smart-robots",
+  ELECTION: "/election-shift",
+  AWARENESS: "/mental-health-awareness",
 };
 
 const AppLayout = lazy(() => import("./App"));
@@ -89,6 +95,24 @@ const ExpertsPage = lazy(() => import("./pages/ExpertsPage/ExpertsPage"));
 const ImpactPage = lazy(() => import("./pages/Impact/ImpactPage"));
 const RoadPage = lazy(() => import("./pages/RoadMapPage/RoadPage"));
 const GlobalPage = lazy(() => import("./pages/GlobalPage/GlobalPage"));
+const BreakthroughPage = lazy(
+  () => import("./pages/BlogPage/Breakthrough/BreakthroughPage")
+);
+const DesiasesPage = lazy(
+  () => import("./pages/BlogPage/Desiases/DesiasesPage")
+);
+const ReformsPage = lazy(() => import("./pages/BlogPage/Reforms/ReformsPage"));
+const StartupsPage = lazy(
+  () => import("./pages/BlogPage/Startups/StartupsPage")
+);
+
+const ElectionPage = lazy(
+  () => import("./pages/BlogPage/Election/ElectionPage")
+);
+
+const AwarenessPage = lazy(
+  () => import("./pages/BlogPage/Awareness/AwarenessPage")
+);
 
 export const router = createBrowserRouter([
   {
@@ -123,6 +147,12 @@ export const router = createBrowserRouter([
       { path: ROUTER_PATHS.IMPACT, element: <ImpactPage /> },
       { path: ROUTER_PATHS.ROADMAP, element: <RoadPage /> },
       { path: ROUTER_PATHS.GLOBAL, element: <GlobalPage /> },
+      { path: ROUTER_PATHS.QUANTUM, element: <BreakthroughPage /> },
+      { path: ROUTER_PATHS.DESIASES, element: <DesiasesPage /> },
+      { path: ROUTER_PATHS.REFORMS, element: <ReformsPage /> },
+      { path: ROUTER_PATHS.STARTUPS, element: <StartupsPage /> },
+      { path: ROUTER_PATHS.ELECTION, element: <ElectionPage /> },
+      { path: ROUTER_PATHS.AWARENESS, element: <AwarenessPage /> },
     ],
   },
 ]);

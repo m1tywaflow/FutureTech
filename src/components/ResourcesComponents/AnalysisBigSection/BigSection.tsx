@@ -38,7 +38,6 @@ function Card({ item }: { item: (typeof analysisData)[0] }) {
         alt={item.title}
         className="h-64 sm:h-72 w-full object-cover group-hover:scale-105 transition duration-500"
       />
-
       <div className="p-8 flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <img src={item.icon} className="w-12 h-12" />
