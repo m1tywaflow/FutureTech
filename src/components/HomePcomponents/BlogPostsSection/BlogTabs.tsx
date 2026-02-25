@@ -173,16 +173,16 @@ const BlogTabs = () => {
               key={post.id}
               variants={itemVariants}
               layout
-              className="flex justify-between items-start border-b border-neutral-800 pb-6"
+              className="flex flex-col lg:flex-row lg:justify-between items-start border-b border-neutral-800 pb-6 gap-4"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-start gap-4 w-full lg:w-auto">
                 <img
                   src={post.authorImg}
                   alt={post.author}
-                  className="w-16 h-16 rounded-full object-cover"
+                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
                 />
 
-                <div>
+                <div className="flex-1">
                   <p className="text-sm text-neutral-400">
                     {post.author} • {post.category}
                   </p>
@@ -194,18 +194,16 @@ const BlogTabs = () => {
                     {post.description}
                   </p>
 
-                  <div className="flex items-center gap-4 mt-3 text-sm">
+                  <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
                     <LikeButton
                       likes={post.likes}
                       liked={post.isLiked}
                       onToggle={() => toggleLike(post.id)}
                     />
-
                     <span className="flex items-center gap-1 text-neutral-400">
                       <MessageSquare className="w-4 h-4" />
                       {post.comments}
                     </span>
-
                     <span className="flex items-center gap-1 text-neutral-400">
                       <Eye className="w-4 h-4" />
                       {post.views}
@@ -216,7 +214,7 @@ const BlogTabs = () => {
 
               <Link
                 to="/blog"
-                className="flex items-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-6 py-4 hover:bg-[#111111] transition text-sm font-light"
+                className="w-full sm:w-fit flex items-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-4 sm:px-6 py-3 sm:py-4 hover:bg-[#111111] transition text-sm font-light mt-4 lg:mt-0"
               >
                 View Blog
                 <ArrowUpRight className="w-4 h-4 text-yellow-500" />
