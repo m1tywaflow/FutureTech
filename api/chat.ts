@@ -1,15 +1,7 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import fetch from "node-fetch";
+// api/chat.ts
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import fetch from 'node-fetch';
 
-dotenv.config();
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-// Новый тип — content лежит прямо внутри choices
 type DeepSeekResponse = {
   choices?: {
     role: string;
@@ -17,44 +9,40 @@ type DeepSeekResponse = {
   }[];
 };
 
-app.post("/chat", async (req, res) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   const { message } = req.body;
 
-  console.log("Incoming message:", message);
-  console.log("API KEY:", process.env.DEEPSEEK_API_KEY);
+  if (!message) {
+    return res.status(400).json({ error: 'Message is required' });
+  }
 
   try {
-    const response = await fetch(
-      "https://api.deepseek.com/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "deepseek-chat",
-          messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            { role: "user", content: message },
-          ],
-        }),
-      }
-    );
+    const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant.' },
+          { role: 'user', content: message },
+        ],
+      }),
+    });
 
     const data: DeepSeekResponse = await response.json();
-    console.log("DeepSeek response:", data);
 
-    // Теперь обращаемся к content напрямую
-    const reply = data.choices?.[0]?.content || "No response from AI";
+    const reply = data.choices?.[0]?.content || 'No response from AI';
 
-    res.json({ reply });
+    res.status(200).json({ reply });
   } catch (err: any) {
-    console.error("SERVER ERROR:", err);
-    res.status(500).json({ error: err.message });
+    console.error('SERVER ERROR:', err);
+    res.status(500).json({ error: err.message || 'Internal server error' });
   }
-});
-
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
-});
+}

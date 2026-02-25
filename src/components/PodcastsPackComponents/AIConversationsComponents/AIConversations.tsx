@@ -24,42 +24,6 @@ export default function AIConversations() {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
   }, [messages]);
-
-  // const generateAIReply = useCallback((prompt: string) => {
-  //   const replies = [
-  //     "Interesting topic — here are a few ideas:",
-  //     "Focus on clarity, simplicity, and fast feedback loops.",
-  //     "Tip: test your interface with real users early.",
-  //     "I can draft a design mockup or flow if you want.",
-  //   ];
-  //   return `${
-  //     replies[Math.floor(Math.random() * replies.length)]
-  //   } (reply to: "${prompt}")`;
-  // }, []);
-
-  // const send = useCallback(() => {
-  //   if (!input.trim()) return;
-
-  //   const userMessage: Message = {
-  //     id: String(Date.now()),
-  //     from: "user",
-  //     text: input.trim(),
-  //   };
-
-  //   setMessages((prev) => [...prev, userMessage]);
-  //   setInput("");
-
-  //   setTimeout(() => {
-  //     const aiMessage: Message = {
-  //       id: String(Date.now() + 1),
-  //       from: "ai",
-  //       text: generateAIReply(userMessage.text),
-  //     };
-
-  //     setMessages((prev) => [...prev, aiMessage]);
-  //   }, 600);
-  // }, [input, generateAIReply]);
-
   const send = useCallback(async () => {
     if (!input.trim()) return;
 
