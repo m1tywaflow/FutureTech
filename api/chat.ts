@@ -9,11 +9,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+type DeepSeekResponse = {
+  choices: {
+    message: {
+      content: string;
+    };
+  }[];
+};
+
 app.post("/chat", async (req, res) => {
   const { message } = req.body;
 
   console.log("Incoming message:", message);
-  console.log("API KEY:", process.env.DEEPSEEK_API_KEY); 
+  console.log("API KEY:", process.env.DEEPSEEK_API_KEY);
 
   try {
     const response = await fetch(
@@ -34,8 +42,8 @@ app.post("/chat", async (req, res) => {
       }
     );
 
-    const data = await response.json();
-    console.log("DeepSeek response:", data); 
+    const data: DeepSeekResponse = await response.json();
+    console.log("DeepSeek response:", data);
 
     res.json({
       reply: data.choices?.[0]?.message?.content || "No response from AI",
