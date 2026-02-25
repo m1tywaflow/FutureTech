@@ -9,8 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Новый тип — content лежит прямо внутри choices
 type DeepSeekResponse = {
-  choices: {
+  choices?: {
+    role: string;
     content: string;
   }[];
 };
@@ -43,10 +45,11 @@ app.post("/chat", async (req, res) => {
     const data: DeepSeekResponse = await response.json();
     console.log("DeepSeek response:", data);
 
-    res.json({
-      reply: data.choices?.[0]?.content || "No response from AI",
-    });
-  } catch (err) {
+    // Теперь обращаемся к content напрямую
+    const reply = data.choices?.[0]?.content || "No response from AI";
+
+    res.json({ reply });
+  } catch (err: any) {
     console.error("SERVER ERROR:", err);
     res.status(500).json({ error: err.message });
   }
