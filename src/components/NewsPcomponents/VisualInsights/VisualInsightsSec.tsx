@@ -28,14 +28,15 @@ export default function VisualInsightsSec() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto visual-bg  text-white px-6 py-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 ">
+    <section className="max-w-7xl mx-auto visual-bg text-white px-4 sm:px-6 md:px-10 py-16 md:py-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
         {SubContainers.map((item, index) => (
           <div
             key={index}
-            className="rounded-xl overflow-hidden bg-[#141414] border border-[#2A2A2A] hover:border-[#3A3A3A] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="rounded-xl overflow-hidden bg-[#141414] border border-[#2A2A2A]
+            hover:border-[#3A3A3A] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <div className="relative w-full h-52 overflow-hidden">
+            <div className="relative w-full h-44 sm:h-52 overflow-hidden">
               <img
                 src={item.img}
                 alt={item.title}
@@ -43,8 +44,10 @@ export default function VisualInsightsSec() {
               />
             </div>
 
-            <div className="p-5">
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+            <div className="p-4 sm:p-5">
+              <h3 className="text-base sm:text-lg font-semibold mb-2">
+                {item.title}
+              </h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 {item.text}
               </p>

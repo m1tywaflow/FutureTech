@@ -5,6 +5,7 @@ import ContactButton from "@/components/UI/ContactButton/ContactButton";
 
 export default function Header() {
   const [show, setShow] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -24,6 +25,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const links = [
+    { to: "/news-page", label: "News" },
+    { to: "/podcasts-page", label: "Podcasts" },
+    { to: "/resources", label: "Resources" },
+    { to: "/global", label: "Models" },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 bg-[#0F0F0F] text-white
@@ -37,12 +45,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          {[
-            { to: "/news-page", label: "News" },
-            { to: "/podcasts-page", label: "Podcasts" },
-            { to: "/resources", label: "Resources" },
-            { to: "/global", label: "Models" },
-          ].map(({ to, label }) => (
+          {links.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
@@ -56,7 +59,44 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-        <ContactButton />
+
+        <div className="hidden md:block">
+          <ContactButton />
+        </div>
+
+        
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden flex flex-col gap-1.5"
+        >
+          <span className="w-6 h-[2px] bg-white"></span>
+          <span className="w-6 h-[2px] bg-white"></span>
+          <span className="w-6 h-[2px] bg-white"></span>
+        </button>
+      </div>
+
+      
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-96 border-t border-white/10" : "max-h-0"
+        }`}
+      >
+        <div className="flex flex-col px-6 py-4 gap-4">
+          {links.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={() => setMenuOpen(false)}
+              className="text-gray-300 hover:text-white transition"
+            >
+              {label}
+            </NavLink>
+          ))}
+
+          <div className="pt-2">
+            <ContactButton />
+          </div>
+        </div>
       </div>
     </header>
   );

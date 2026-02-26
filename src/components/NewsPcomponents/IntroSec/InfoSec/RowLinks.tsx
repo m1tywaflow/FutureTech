@@ -20,6 +20,7 @@ export default function RowLinks() {
   const [search, setSearch] = useState("");
   type SortType = "likes" | "comments";
   const [sortBy, setSortBy] = useState<SortType>("likes");
+
   const cards: Card[] = [
     {
       id: 1,
@@ -48,7 +49,6 @@ export default function RowLinks() {
       comments: 33,
       link: "/election-shift",
     },
-
     {
       id: 4,
       img: imgRowSecond,
@@ -76,7 +76,6 @@ export default function RowLinks() {
       comments: 48,
       link: "/smart-robots",
     },
-
     {
       id: 7,
       img: imgRowThird,
@@ -116,6 +115,7 @@ export default function RowLinks() {
       activeCategory === "All"
         ? cards
         : cards.filter((card) => card.category === activeCategory);
+
     if (search.trim()) {
       result = result.filter((card) =>
         card.title.toLowerCase().includes(search.toLowerCase())
@@ -123,72 +123,67 @@ export default function RowLinks() {
     }
 
     return [...result].sort((a, b) => {
-      if (sortBy === "likes") {
-        return b.likes - a.likes;
-      }
-      if (sortBy === "comments") {
-        return b.comments - a.comments;
-      }
+      if (sortBy === "likes") return b.likes - a.likes;
+      if (sortBy === "comments") return b.comments - a.comments;
       return 0;
     });
   }, [activeCategory, cards, search, sortBy]);
 
   return (
-    <section className="w-full bg-[#0D0D0D] text-white px-6 py-20">
-      <div className="flex flex-col gap-6 mb-12">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative">
+    <section className="w-full bg-[#0D0D0D] text-white px-4 sm:px-6 md:px-10 py-16 md:py-20">
+      <div className="flex flex-col gap-6 mb-10 md:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 relative">
           <input
             type="text"
             placeholder="Search news..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="
-      w-full md:max-w-sm px-4 py-2 rounded-lg border border-[#2A2A2A]
-      bg-[#111111] text-white placeholder-[#98989A]
-      focus:outline-none focus:border-[#FFD600]
-
-      md:absolute md:left-1/2 md:-translate-x-1/2
-    "
+              w-full lg:max-w-sm px-4 py-2 rounded-lg border border-[#2A2A2A]
+              bg-[#111111] text-white placeholder-[#98989A]
+              focus:outline-none focus:border-[#FFD600]
+              lg:absolute lg:left-1/2 lg:-translate-x-1/2
+            "
           />
 
-          <div className="flex gap-3 md:ml-auto">
+          <div className="flex justify-between w-full lg:w-auto lg:justify-start gap-3 lg:ml-auto">
             <button
               onClick={() => setSortBy("likes")}
-              className={`px-6 py-2 flex items-center gap-2  border transition
-        ${
-          sortBy === "likes"
-            ? "border-[#FFD600] text-[#FFD600]"
-            : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
-        }`}
+              className={`px-5 py-2 flex items-center gap-2 border transition
+              ${
+                sortBy === "likes"
+                  ? "border-[#FFD600] text-[#FFD600]"
+                  : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+              }`}
             >
               Likes <ArrowDownWideNarrow className="w-4 h-4" />
             </button>
 
             <button
               onClick={() => setSortBy("comments")}
-              className={`px-6 py-2 flex items-center gap-2  border transition
-        ${
-          sortBy === "comments"
-            ? "border-[#FFD600] text-[#FFD600]"
-            : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
-        }`}
+              className={`px-5 py-2 flex items-center gap-2 border transition
+              ${
+                sortBy === "comments"
+                  ? "border-[#FFD600] text-[#FFD600]"
+                  : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+              }`}
             >
               Comments <ArrowDownWideNarrow className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 flex-wrap">
+        <div className="flex justify-center gap-2 sm:gap-3 flex-wrap">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-1 rounded-full border text-sm transition
-          ${
-            activeCategory === category
-              ? "border-[#FFD600] text-[#FFD600]"
-              : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
-          }`}
+              className={`px-5 py-1 rounded-full border text-sm transition
+              ${
+                activeCategory === category
+                  ? "border-[#FFD600] text-[#FFD600]"
+                  : "border-[#2A2A2A] text-[#98989A] hover:border-[#7c7345]"
+              }`}
             >
               {category}
             </button>
@@ -196,7 +191,7 @@ export default function RowLinks() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
         {filteredCards.map((card) => (
           <StripeNewsCard key={card.id} card={card} />
         ))}

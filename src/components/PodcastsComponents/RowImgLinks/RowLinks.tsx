@@ -46,8 +46,8 @@ export default function RowLinks() {
   ];
 
   return (
-    <section className="w-full text-white py-24 px-10 md:px-20 bg-[#0D0D0D]">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <section className="w-full text-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-10 lg:px-20 bg-[#0D0D0D]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {podcasts.map((item, index) => (
           <div
             key={index}
@@ -56,13 +56,17 @@ export default function RowLinks() {
             <img
               src={item.img}
               alt={item.title}
-              className="w-full h-56 object-cover transition-transform duration-500 hover:scale-105"
+              className="w-full h-44 sm:h-52 md:h-56 object-cover transition-transform duration-500 hover:scale-105"
             />
 
-            <div className="p-6 flex flex-col gap-3">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
+            <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
+              <h3 className="text-base sm:text-lg font-semibold">
+                {item.title}
+              </h3>
 
-              <p className="text-sm text-gray-300">{item.description}</p>
+              <p className="text-xs sm:text-sm text-gray-300">
+                {item.description}
+              </p>
             </div>
           </div>
         ))}

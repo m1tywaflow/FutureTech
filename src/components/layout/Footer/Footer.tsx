@@ -22,7 +22,7 @@ const footerLinks: {
     { label: "Resources", href: "/resources", isNew: true },
     { label: "Contact Us", href: "/contact-us" },
     { label: "Newsletter", href: "/news-letter" },
-     { label: "About Us", href: "/about-us" },
+    { label: "About Us", href: "/about-us" },
   ],
   news: [
     { label: "Trending Stories", href: "/trending-stories" },
@@ -67,8 +67,8 @@ export default function Footer() {
   );
 
   return (
-    <footer className="bg-black text-gray-300 py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+    <footer className="bg-black text-gray-300 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div>
           <h3 className="text-white font-semibold mb-4">Home</h3>
           <ul className="space-y-2 text-sm">
@@ -77,6 +77,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
         <div>
           <h3 className="text-white font-semibold mb-4">News</h3>
           <ul className="space-y-2 text-sm">
@@ -85,6 +86,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
         <div>
           <h3 className="text-white font-semibold mb-4">Blogs</h3>
           <ul className="space-y-2 text-sm">
@@ -93,6 +95,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
         <div>
           <h3 className="text-white font-semibold mb-4">Podcasts</h3>
           <ul className="space-y-2 text-sm">
@@ -101,6 +104,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
         <div>
           <h3 className="text-white font-semibold mb-4">Resources</h3>
           <ul className="space-y-3 text-sm">
@@ -118,8 +122,9 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <div className="flex gap-6 mb-4 md:mb-0">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mt-10 pt-6 border-t border-neutral-800 flex flex-col lg:flex-row justify-between items-center text-sm text-gray-400 gap-6">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6">
           <Link
             to="/terms-conditions"
             className="hover:text-white transition-colors"
@@ -134,7 +139,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="flex gap-4 mb-4 md:mb-0">
+        <div className="flex gap-5">
           <a
             href="#"
             aria-label="Twitter"
@@ -158,7 +163,9 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="mt-2 md:mt-0">© 2024 FutureTech. All rights reserved.</p>
+        <p className="text-center lg:text-right">
+          © 2024 FutureTech. All rights reserved.
+        </p>
       </div>
     </footer>
   );

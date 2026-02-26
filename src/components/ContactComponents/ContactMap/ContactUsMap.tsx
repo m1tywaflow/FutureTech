@@ -10,10 +10,10 @@ import {
 const ContactUsMap = () => {
   return (
     <div
-      className="h-[420px] w-full  overflow-hidden border border-amber-300"
+      className="w-full h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden rounded-2xl border border-[#1E1E1E]"
       data-lenis-prevent
     >
-      <Map center={[21.0122, 52.2297]} zoom={12}>
+      <Map center={[21.0122, 52.2297]} zoom={12} className="w-full h-full">
         <MapControls
           position="bottom-right"
           showZoom
@@ -26,8 +26,8 @@ const ContactUsMap = () => {
           <MarkerContent>
             <div className="relative">
               <span className="absolute inset-0 rounded-full bg-yellow-400/40 animate-ping" />
-              <div className="size-6 rounded-full bg-yellow-400/30 flex items-center justify-center">
-                <div className="size-3 rounded-full bg-yellow-400 shadow-lg" />
+              <div className="w-6 h-6 rounded-full bg-yellow-400/30 flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-lg" />
               </div>
             </div>
           </MarkerContent>
@@ -35,14 +35,12 @@ const ContactUsMap = () => {
           <MarkerTooltip>Warsaw</MarkerTooltip>
 
           <MarkerPopup>
-            <div className="min-w-160px rounded-lg bg-background p-3 shadow-xl border">
-              <p className="font-semibold text-sm text-foreground">
+            <div className="min-w-[160px] rounded-lg bg-[#0F0F0F] p-3 shadow-xl border border-[#1F1F1F]">
+              <p className="font-semibold text-sm text-white">
                 Warsaw FutureTech
               </p>
-              <p className="text-xs text-muted-foreground mt-1">Poland</p>
-              <p className="text-xs text-muted-foreground mt-2">
-                52.2297, 21.0122
-              </p>
+              <p className="text-xs text-gray-400 mt-1">Poland</p>
+              <p className="text-xs text-gray-500 mt-2">52.2297, 21.0122</p>
             </div>
           </MarkerPopup>
         </MapMarker>
