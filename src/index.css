@@ -35,23 +35,30 @@ body {
 .custom-scroll::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
-    rgba(168, 85, 247, 0.6),
-    rgba(139, 92, 246, 0.9)
+    rgba(191, 163, 74, 0.45),
+    rgba(191, 163, 74, 0.9)
   );
   border-radius: 999px;
+  border: 1px solid rgba(191, 163, 74, 0.25);
+  box-shadow: 0 0 10px rgba(191, 163, 74, 0.2);
+  transition: 0.2s ease;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     to bottom,
-    rgba(192, 132, 252, 0.9),
-    rgba(139, 92, 246, 1)
+    rgba(212, 183, 90, 0.9),
+    rgba(232, 212, 138, 1)
   );
 }
 
 .custom-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(139, 92, 246, 0.7) transparent;
+  scrollbar-color: rgba(191, 163, 74, 0.75) transparent;
+}
+::selection {
+  background: rgba(191, 163, 74, 0.35);
+  color: #fff;
 }
 
 @theme inline {

@@ -5,7 +5,7 @@ const AIModelsSection = () => {
     <section
       style={{
         background:
-          "linear-gradient(to bottom, #0a0a0f 0%, #120f1f 50%, #140f22 100%)",
+          "linear-gradient(to bottom, #363030 0%, #2F2A27 40%, #2B2623 100%)",
         padding: "200px 0",
         position: "relative",
         overflow: "hidden",
@@ -20,8 +20,23 @@ const AIModelsSection = () => {
           width: "1000px",
           height: "1000px",
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.25), transparent 60%)",
-          filter: "blur(120px)",
+            "radial-gradient(circle, rgba(191,163,74,0.25), transparent 60%)",
+          filter: "blur(140px)",
+          zIndex: 0,
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-300px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "900px",
+          height: "900px",
+          background:
+            "radial-gradient(circle, rgba(191,163,74,0.15), transparent 70%)",
+          filter: "blur(160px)",
           zIndex: 0,
         }}
       />
@@ -40,7 +55,7 @@ const AIModelsSection = () => {
             style={{
               fontSize: "56px",
               fontWeight: 600,
-              color: "white",
+              color: "#F5F3EE",
               marginBottom: "30px",
               lineHeight: "1.1",
             }}
@@ -49,7 +64,7 @@ const AIModelsSection = () => {
             <br />
             <span
               style={{
-                background: "linear-gradient(to right, #a855f7, #7c3aed)",
+                background: "linear-gradient(to right, #BFA34A, #E8D48A)",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
               }}
@@ -60,7 +75,7 @@ const AIModelsSection = () => {
 
           <p
             style={{
-              color: "rgba(255,255,255,0.65)",
+              color: "#B9B2A8",
               fontSize: "20px",
               maxWidth: "750px",
               margin: "0 auto",
@@ -101,15 +116,16 @@ const AIModelsSection = () => {
                 padding: "40px",
                 borderRadius: "20px",
                 background:
-                  "linear-gradient(145deg, rgba(139,92,246,0.15), rgba(88,28,135,0.25))",
-                border: "1px solid rgba(139,92,246,0.25)",
-                boxShadow: "0 10px 40px rgba(139,92,246,0.15)",
+                  "linear-gradient(145deg, rgba(191,163,74,0.10), rgba(191,163,74,0.18))",
+                border: "1px solid rgba(191,163,74,0.25)",
+                boxShadow: "0 10px 40px rgba(0,0,0,0.4)",
                 backdropFilter: "blur(10px)",
+                transition: "0.3s",
               }}
             >
               <h3
                 style={{
-                  color: "white",
+                  color: "#F5F3EE",
                   fontSize: "22px",
                   marginBottom: "15px",
                 }}
@@ -118,7 +134,7 @@ const AIModelsSection = () => {
               </h3>
               <p
                 style={{
-                  color: "rgba(255,255,255,0.65)",
+                  color: "#B9B2A8",
                   lineHeight: "1.6",
                 }}
               >

@@ -39,15 +39,7 @@ const RoalingCards = () => {
               style={{ "--index": i } as React.CSSProperties}
             >
               <div className="content">
-                {card.img ? (
-                  <img
-                    src={card.img}
-                    alt={card.title}
-                    className="image w-30 h-30"
-                  />
-                ) : (
-                  <span className="icon">{card.icon}</span>
-                )}
+                <img src={card.img} alt={card.title} className="image" />
                 <span className="title">{card.title}</span>
               </div>
             </div>
@@ -59,27 +51,44 @@ const RoalingCards = () => {
 };
 
 const StyledWrapper = styled.div`
+  position: relative;
+
   .wrapper {
     width: 100%;
-    height: 180px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    position: relative;
+  }
+
+  .wrapper::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+      circle,
+      rgba(191, 163, 74, 0.18),
+      transparent 70%
+    );
+    filter: blur(90px);
+    pointer-events: none;
   }
 
   .inner {
     --w: 140px;
     --h: 180px;
     --translateZ: 260px;
-    --rotateX: -15deg;
+    --rotateX: -12deg;
     --perspective: 1000px;
 
     position: relative;
     width: var(--w);
     height: var(--h);
     transform-style: preserve-3d;
-    animation: rotating 22s linear infinite;
+    animation: rotating 28s linear infinite;
+    will-change: transform;
   }
 
   @keyframes rotating {
@@ -96,15 +105,15 @@ const StyledWrapper = styled.div`
   .card {
     position: absolute;
     inset: 0;
-    border-radius: 16px;
+    border-radius: 18px;
 
     background: linear-gradient(
       145deg,
-      rgba(139, 92, 246, 0.35),
-      rgba(88, 28, 135, 0.6)
+      rgba(191, 163, 74, 0.1),
+      rgba(191, 163, 74, 0.18)
     );
 
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid rgba(191, 163, 74, 0.35);
 
     display: flex;
     align-items: center;
@@ -113,27 +122,44 @@ const StyledWrapper = styled.div`
     transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
       translateZ(var(--translateZ));
 
-    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3),
-      inset 0 0 40px rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    transition: transform 0.4s ease, border 0.3s ease;
+  }
+
+  .card:hover {
+    border: 1px solid rgba(212, 183, 90, 0.7);
   }
 
   .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    color: #fff;
+    gap: 14px;
+    color: #f5f3ee;
     font-family: system-ui, sans-serif;
   }
 
-  .icon {
-    font-size: 42px;
+  .image {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
   }
 
   .title {
     font-size: 14px;
-    opacity: 0.8;
     letter-spacing: 0.4px;
+    color: #b9b2a8;
+  }
+
+  @media (max-width: 768px) {
+    .inner {
+      --translateZ: 200px;
+      animation-duration: 35s;
+    }
   }
 `;
 

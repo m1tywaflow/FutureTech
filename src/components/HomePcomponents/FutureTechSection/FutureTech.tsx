@@ -1,5 +1,6 @@
 import futureIcon from "../../../assets/HomeImg/Icons/technology.png";
 import insightsIcon from "../../../assets/HomeImg/Icons/insights.png";
+
 export default function FutureTech() {
   const techBlog = [
     {
@@ -40,76 +41,97 @@ export default function FutureTech() {
   ];
 
   return (
-    <section className="w-full bg-[#0A0A0A] text-white py-16 md:py-24 px-4 sm:px-8 lg:px-20">
-      <div className="border border-[#1E1E1E] rounded-2xl overflow-hidden">
-        <div className="grid grid-rows-2 divide-y divide-[#1E1E1E]">
+    <section className="relative w-full bg-[#0A0A0A] text-white py-24 px-6 lg:px-16 overflow-hidden">
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="relative max-w-8xl mx-auto border border-[#1A1A1A] rounded-3xl overflow-hidden bg-[#0C0C0C]/60 backdrop-blur-xl">
+        <div className="grid grid-rows-2 divide-y divide-[#1A1A1A]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#1A1A1A]">
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-xl bg-[#111111] border border-[#1F1F1F]">
+                  <img src={futureIcon} alt="" className="w-7 h-7" />
+                </div>
+                <h1 className="text-3xl font-semibold">
+                  Future Technology Blog
+                </h1>
+              </div>
 
-          {/* FIRST BLOCK */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#1E1E1E]">
-            
-            {/* LEFT INFO */}
-            <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center space-y-4 sm:space-y-6">
-              <img src={futureIcon} alt="Future Icon" className="w-10 h-10 sm:w-14 sm:h-14" />
-              <h1 className="text-2xl sm:text-3xl font-semibold">
-                Future Technology Blog
-              </h1>
-              <p className="text-[#98989A] max-w-md text-sm sm:text-base">
-                Stay informed with our blog section dedicated to future
-                technology.
+              <p className="text-[#9A9A9A] max-w-md leading-relaxed">
+                Stay informed with our curated insights on emerging technology,
+                innovation trends, and breakthroughs shaping the future.
               </p>
             </div>
-
-            {/* RIGHT CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 p-6 sm:p-8 lg:p-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-10 lg:p-14">
               {techBlog.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl p-4 sm:p-6 hover:bg-[#111111] transition-colors"
+                  className="
+                  group
+                  bg-[#0F0F0F]
+                  border border-[#1F1F1F]
+                  rounded-2xl
+                  p-6
+                  transition
+                  hover:border-[#BFA34A]/40
+                  hover:shadow-[0_0_30px_rgba(191,163,74,0.15)]
+                  hover:-translate-y-1
+                  "
                 >
-                  <h2 className="text-base sm:text-lg font-semibold mb-2">
+                  <h2 className="text-lg font-semibold mb-2 group-hover:text-[#E7D27A] transition">
                     {item.title}
                   </h2>
-                  <p className="text-[#A1A1AA] text-xs sm:text-sm">
+                  <p className="text-[#9A9A9A] text-sm leading-relaxed">
                     {item.info}
                   </p>
+
+                  <div className="mt-4 h-[1px] bg-gradient-to-r from-transparent via-[#BFA34A]/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
                 </div>
               ))}
             </div>
           </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#1A1A1A]">
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 rounded-xl bg-[#111111] border border-[#1F1F1F]">
+                  <img src={insightsIcon} alt="" className="w-7 h-7" />
+                </div>
+                <h1 className="text-3xl font-semibold">
+                  Research Insights Blogs
+                </h1>
+              </div>
 
-          {/* SECOND BLOCK */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#1E1E1E]">
-            
-            {/* LEFT INFO */}
-            <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center space-y-4 sm:space-y-6">
-              <img src={insightsIcon} alt="Insights Icon" className="w-10 h-10 sm:w-14 sm:h-14" />
-              <h1 className="text-2xl sm:text-3xl font-semibold">
-                Research Insights Blogs
-              </h1>
-              <p className="text-[#98989A] max-w-md text-sm sm:text-base">
-                Dive deep into future technology concepts with our research
-                section.
+              <p className="text-[#9A9A9A] max-w-md leading-relaxed">
+                Deep dive into advanced research, analysis and future-focused
+                technology concepts explored by experts.
               </p>
             </div>
-
-            {/* RIGHT CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 p-6 sm:p-8 lg:p-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-10 lg:p-14">
               {insightsBlog.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl p-4 sm:p-6 hover:bg-[#111111] transition-colors"
+                  className="
+                  group
+                  bg-[#0F0F0F]
+                  border border-[#1F1F1F]
+                  rounded-2xl
+                  p-6
+                  transition
+                  hover:border-[#BFA34A]/40
+                  hover:shadow-[0_0_30px_rgba(191,163,74,0.15)]
+                  hover:-translate-y-1
+                  "
                 >
-                  <h2 className="text-base sm:text-lg font-semibold mb-2">
+                  <h2 className="text-lg font-semibold mb-2 group-hover:text-[#E7D27A] transition">
                     {item.title}
                   </h2>
-                  <p className="text-[#A1A1AA] text-xs sm:text-sm">
+                  <p className="text-[#9A9A9A] text-sm leading-relaxed">
                     {item.info}
                   </p>
+                  <div className="mt-4 h-[1px] bg-gradient-to-r from-transparent via-[#BFA34A]/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

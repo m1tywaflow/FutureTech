@@ -1,30 +1,38 @@
 import styled from "styled-components";
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HoverBtn = () => {
   return (
     <StyledWrapper>
-      <button className="btn-53">
-        <div className="original">Learn More</div>
-        <div className="letters flex gap-3">
-          <span>E</span>
-          <span>X</span>
-          <span>P</span>
-          <span>L</span>
-          <span>O</span>
-          <span>R</span>
-          <span>E</span>
+      <Link to="/ai-conversations" className="link">
+        <button className="btn-53">
+          <div className="original">Start Chat</div>
 
-          <span className="arrow">
-            <MoveRight />
-          </span>
-        </div>
-      </button>
+          <div className="letters flex gap-3">
+            <span>E</span>
+            <span>X</span>
+            <span>P</span>
+            <span>L</span>
+            <span>O</span>
+            <span>R</span>
+            <span>E</span>
+
+            <span className="arrow">
+              <MoveRight />
+            </span>
+          </div>
+        </button>
+      </Link>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
+  .link {
+    display: inline-block;
+  }
+
   .btn-53,
   .btn-53 *,
   .btn-53 :after,
@@ -40,13 +48,19 @@ const StyledWrapper = styled.div`
     background-color: #000;
     color: #fff;
     cursor: pointer;
-    border: 1px solid;
+    border: 1px solid rgba(191, 163, 74, 0.5);
     border-radius: 999px;
     padding: 1.2rem 3rem;
     overflow: hidden;
     position: relative;
     font-weight: 900;
     text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .btn-53:hover {
+    box-shadow: 0 0 25px rgba(191, 163, 74, 0.35);
+    border-color: rgba(191, 163, 74, 0.9);
   }
 
   .btn-53 svg {
@@ -54,7 +68,11 @@ const StyledWrapper = styled.div`
   }
 
   .btn-53 .original {
-    background: #fff;
+    background: linear-gradient(
+      135deg,
+      rgba(232, 212, 138, 1),
+      rgba(191, 163, 74, 1)
+    );
     color: #000;
     display: grid;
     place-content: center;
@@ -72,7 +90,6 @@ const StyledWrapper = styled.div`
     align-items: center;
   }
 
-  /* Smooth letters animation */
   .btn-53 span {
     opacity: 0;
     transform: translateY(-15px);
@@ -88,7 +105,6 @@ const StyledWrapper = styled.div`
     transform: translateY(0);
   }
 
-  /* Delays for stagger animation */
   .btn-53:hover span:nth-child(1) {
     transition-delay: 0.05s;
   }
@@ -111,7 +127,6 @@ const StyledWrapper = styled.div`
     transition-delay: 0.35s;
   }
 
-  /* Arrow appears last */
   .btn-53:hover .arrow {
     transition-delay: 0.45s;
   }

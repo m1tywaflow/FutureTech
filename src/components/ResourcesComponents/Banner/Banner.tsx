@@ -1,110 +1,10 @@
-// import { useEffect, useState, useRef } from "react";
-// interface CounterProps {
-//   end: number;
-//   duration?: number;
-// }
-// function Counter({ end, duration = 2000 }: CounterProps) {
-//   const [count, setCount] = useState(0);
-//   const [visible, setVisible] = useState(false);
-//   const ref = useRef<HTMLSpanElement>(null);
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) setVisible(true);
-//       },
-//       { threshold: 0.3 }
-//     );
-//     if (ref.current) observer.observe(ref.current);
-//     return () => observer.disconnect();
-//   }, []);
-
-//   useEffect(() => {
-//     if (!visible) return;
-//     let start = 0;
-//     const incrementTime = 16;
-//     const totalSteps = duration / incrementTime;
-//     const step = end / totalSteps;
-
-//     const counter = setInterval(() => {
-//       start += step;
-//       if (start >= end) {
-//         start = end;
-//         clearInterval(counter);
-//       }
-//       setCount(Math.floor(start));
-//     }, incrementTime);
-
-//     return () => clearInterval(counter);
-//   }, [visible, end, duration]);
-
-//   return <span ref={ref}>{count.toLocaleString()}</span>;
-// }
-
-// export default function Banner() {
-//   return (
-//     <section className="w-full bg-[#0D0D0D] text-white  text-center">
-//       <div className="w-full border-[#2A2A2A] pb-8 px-40 py-30">
-//         <h1 className="text-5xl font-semibold leading-tight text-start">
-//           Unlock a World of
-//         </h1>
-
-//         <div className="flex items-start gap-30 mt-4">
-//           <h1 className="text-5xl font-semibold leading-tight">Knowledge</h1>
-
-//           <p className="text-[#98989A] text-sm max-w-4xl pt-2">
-//             Dive deep into the AI universe with our collection of insightful
-//             podcasts. Explore the latest trends, breakthroughs, and discussions
-//             on artificial intelligence. Whether you're an enthusiast or a
-//             professional, our AI podcasts offer a gateway to knowledge and
-//             innovation.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="border border-[#262626] border-collapse mt-10">
-//         <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#262626]">
-//           <div className="text-center md:text-left p-10">
-//             <h2 className="text-3xl font-bold transition-all duration-300 ease-out">
-//               <Counter end={300} />
-//               <span className="text-yellow-400">+</span>
-//             </h2>
-//             <p className="text-gray-400 mt-2">Resources available</p>
-//           </div>
-
-//           <div className="text-center md:text-left p-10">
-//             <h2 className="text-3xl font-bold">
-//               <Counter end={12000} />
-//               <span className="text-yellow-400">+</span>
-//             </h2>
-//             <p className="text-gray-400 mt-2">Total Downloads</p>
-//           </div>
-
-//           <div className="text-center md:text-left p-10">
-//             <h2 className="text-3xl font-bold">
-//               <Counter end={10000} />
-//               <span className="text-yellow-400">+</span>
-//             </h2>
-//             <p className="text-gray-400 mt-2">Active Users</p>
-//           </div>
-//           <div className="text-center md:text-left p-10">
-//             <h2 className="text-3xl font-bold">
-//               <Counter end={100} />
-//               <span className="text-yellow-400">+</span>
-//             </h2>
-//             <p className="text-gray-400 mt-2">Countries Accesses Our Content</p>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
 import { useEffect, useState, useRef } from "react";
 
 interface CounterProps {
   end: number;
   duration?: number;
 }
+
 function Counter({ end, duration = 2000 }: CounterProps) {
   const [count, setCount] = useState(0);
   const [visible, setVisible] = useState(false);
@@ -115,7 +15,7 @@ function Counter({ end, duration = 2000 }: CounterProps) {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.4 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -123,6 +23,7 @@ function Counter({ end, duration = 2000 }: CounterProps) {
 
   useEffect(() => {
     if (!visible) return;
+
     let start = 0;
     const incrementTime = 16;
     const totalSteps = duration / incrementTime;
@@ -144,51 +45,64 @@ function Counter({ end, duration = 2000 }: CounterProps) {
 }
 
 export default function Banner() {
+  const stats = [
+    { end: 300, label: "Resources available" },
+    { end: 12000, label: "Total Downloads" },
+    { end: 10000, label: "Active Users" },
+    { end: 100, label: "Countries using platform" },
+  ];
+
   return (
-    <section className="w-full bg-[#0D0D0D] text-white text-center">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 py-24 sm:py-32">
-        {/* Заголовок */}
-        <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-snug md:leading-tight text-left">
-            Unlock a World of
-          </h1>
-          <div className="flex flex-col text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-snug md:leading-tight">
-              Knowledge
+    <section className="relative w-full bg-[#0A0A0A] text-white overflow-hidden">
+      <div className="absolute top-[-220px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/20 blur-[160px] rounded-full" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-28">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl font-semibold leading-tight">
+              Unlock a World of
+              <span className="block bg-gradient-to-r from-[#E7D27A] via-[#D4B75A] to-[#BFA34A] bg-clip-text text-transparent">
+                Knowledge
+              </span>
             </h1>
-            <p className="text-[#98989A] text-sm sm:text-base mt-2 max-w-xl">
+
+            <p className="text-[#9A9A9A] max-w-xl text-lg leading-relaxed">
               Dive deep into the AI universe with our collection of insightful
-              podcasts. Explore the latest trends, breakthroughs, and
-              discussions on artificial intelligence. Whether you're an
-              enthusiast or a professional, our AI podcasts offer a gateway to
-              knowledge and innovation.
+              podcasts. Explore trends, breakthroughs and real-world discussions
+              about artificial intelligence.
+            </p>
+          </div>
+
+          <div className="bg-[#1d1a03] backdrop-blur-xl border border-[#1F1F1F] rounded-3xl p-8 shadow-[0_0_40px_rgba(191,163,74,0.12)]">
+            <p className="text-[#9A9A9A] text-sm">
+              Our AI knowledge hub continues to grow every day — new research,
+              discussions, and insights added regularly.
             </p>
           </div>
         </div>
 
-        {/* Статистика */}
-        <div className="border border-[#262626] mt-10 overflow-hidden rounded-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 md:divide-y-0 md:divide-x divide-[#262626]">
-            {[
-              { end: 300, label: "Resources available" },
-              { end: 12000, label: "Total Downloads" },
-              { end: 10000, label: "Active Users" },
-              { end: 100, label: "Countries Access Our Content" },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="text-center md:text-left p-6 sm:p-10 flex flex-col justify-center"
-              >
-                <h2 className="text-3xl sm:text-4xl font-bold transition-all duration-300 ease-out">
-                  <Counter end={item.end} />
-                  <span className="text-yellow-400">+</span>
-                </h2>
-                <p className="text-gray-400 mt-2 text-sm sm:text-base">
-                  {item.label}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((item, i) => (
+            <div
+              key={i}
+              className="group relative p-8 rounded-2xl
+              bg-[#463b1a]
+              border border-[#1F1F1F]
+              transition duration-300
+              hover:border-[#BFA34A]/40
+              hover:shadow-[0_0_30px_rgba(191,163,74,0.18)]
+              hover:-translate-y-1"
+            >
+              <h2 className="text-4xl font-semibold">
+                <Counter end={item.end} />
+                <span className="text-[#D4B75A]">+</span>
+              </h2>
+
+              <p className="text-[#8A8A8A] mt-2 text-sm">{item.label}</p>
+
+              <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#BFA34A]/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0f] text-white flex items-center justify-center px-6">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#2F2A27] text-[#F5F3EE] flex items-center justify-center px-6">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(120,119,198,0.25),transparent_50%)]" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-purple-700/20 blur-[160px] rounded-full" />
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A] blur-[160px] rounded-full opacity-40" />
 
       <div className="relative z-10 text-center max-w-5xl">
         <motion.h1
@@ -17,7 +17,7 @@ export default function HeroSection() {
           className="text-5xl md:text-7xl font-semibold tracking-tight leading-tight"
         >
           Unified{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#BFA34A] via-[#D4B75A] to-[#E8D48A] bg-clip-text text-transparent">
             AI Intelligence
           </span>
           <br />
@@ -42,7 +42,7 @@ export default function HeroSection() {
         >
           <Link
             to="/ai-conversations"
-            className="px-8 py-4 rounded-2xl bg-white text-black font-medium hover:scale-105 transition"
+            className="px-8 py-4 rounded-2xl bg-[#BFA34A] text-[#2F2A27] font-medium hover:bg-[#D4B75A] transition"
           >
             Get Started
           </Link>

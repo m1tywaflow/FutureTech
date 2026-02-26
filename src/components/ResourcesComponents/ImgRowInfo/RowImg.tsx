@@ -30,32 +30,49 @@ const ImgBox = [
 
 export default function RowImg() {
   return (
-    <section className="max-w-8xl mx-auto bg-[#0A0A0A] text-white sm:pt-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  lg:divide-x lg:divide-[#1E1E1E]">
+    <section className="max-w-8xl mx-auto px-6 py-16 bg-black">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {ImgBox.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col gap-5 p-6 bg-[#0F0F0F]   duration-300"
+            className="group relative flex flex-col gap-5 p-6
+            bg-white/5 backdrop-blur-xl
+            border border-white/10
+            rounded-2xl
+            transition duration-300
+            hover:border-yellow-400/40
+            hover:shadow-[0_0_30px_rgba(250,204,21,0.15)]"
           >
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-52 sm:h-56 object-cover rounded-xl"
-            />
+            <div className="overflow-hidden rounded-xl">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-52 sm:h-56 object-cover
+                transition duration-500
+                group-hover:scale-105"
+              />
+            </div>
 
             <h3 className="text-xl font-semibold">{item.title}</h3>
 
-            <p className="text-gray-400 text-sm line-clamp-3">
+            <p className="text-zinc-400 text-sm leading-relaxed line-clamp-3">
               {item.description}
             </p>
 
             <div className="flex gap-4 mt-auto pt-4 flex-wrap">
               <Link
                 to="/ebooks"
-                className="px-6 py-2 bg-white/5  border border-white/10 rounded-2xl hover:border-yellow-400/40 hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] transition duration-300 cursor-pointer"
+                className="px-6 py-2
+                bg-white/5
+                border border-white/10
+                rounded-2xl
+                hover:border-yellow-400/40
+                hover:shadow-[0_0_20px_rgba(250,204,21,0.12)]
+                transition duration-300"
               >
                 View Details
               </Link>
+
               <Link to="/ebooks">
                 <DownloadButton />
               </Link>
