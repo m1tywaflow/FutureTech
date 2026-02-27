@@ -1,7 +1,8 @@
 import { BrainCircuit, Sparkles, Rocket, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 export default function AIRevo() {
+  const MotionLink = motion(Link);
   return (
     <div className="min-h-screen bg-black text-yellow-300">
       <motion.section
@@ -78,13 +79,14 @@ export default function AIRevo() {
         <p className="mt-4 text-yellow-200/80 text-lg">
           Build, automate, and accelerate your ideas with powerful AI tools.
         </p>
-        <motion.button
+        <MotionLink
+          to="/ai-conversations"
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-8 bg-yellow-500 text-black font-semibold px-8 py-3 rounded-xl hover:bg-yellow-400 transition shadow-lg"
+          className="mt-8 inline-block bg-yellow-500 text-black font-semibold px-8 py-3 rounded-xl hover:bg-yellow-400 transition shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.35)]"
         >
           Get Started
-        </motion.button>
+        </MotionLink>
       </motion.section>
     </div>
   );

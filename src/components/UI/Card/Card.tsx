@@ -46,7 +46,8 @@ const Card = () => {
 
 const StyledWrapper = styled.div`
   .card {
-    width: fit-content;
+    width: 100%;
+    max-width: 240px;
     height: fit-content;
     background-color: rgb(13, 13, 13);
     display: flex;

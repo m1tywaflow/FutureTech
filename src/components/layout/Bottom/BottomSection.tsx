@@ -25,55 +25,64 @@ export default function BottomSection() {
   ];
 
   return (
-    <section className="w-full max-h-fit bg-[#1A1A1A] py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="items-center flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12 lg:mb-16">
-          <div className="flex justify-center lg:justify-start w-full lg:w-auto">
-            <img
-              src={logo}
-              alt="Logo-Icon"
-              className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-24 object-contain"
-            />
+    <section className="relative w-full bg-[#0B0B0B] py-20 px-6 lg:px-16 overflow-hidden">
+      <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="relative max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 mb-16">
+          <div className="flex justify-center lg:justify-start">
+            <div className="p-4 rounded-2xl bg-[#111111] border border-[#1F1F1F]">
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+              />
+            </div>
           </div>
-
-          <div className="py-4 sm:py-6 max-w-2xl text-center lg:text-left">
-            <h3 className="bg-[#333333] w-fit mx-auto lg:mx-0 rounded-2xl px-4 sm:px-5 py-2 mb-4 text-xs sm:text-sm font-medium text-[#E5E5E5]">
+          <div className="max-w-2xl text-center lg:text-left">
+            <span className="inline-block bg-[#151515] border border-[#262626] rounded-xl px-4 py-2 text-xs text-[#CFCFCF] mb-4">
               Learn, Connect, and Innovate
-            </h3>
-
-            <h1 className="py-4 sm:py-6 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white leading-tight">
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white leading-tight">
               Be Part of the Future Tech Revolution
-            </h1>
-
-            <p className="text-[#7E7E81] text-sm sm:text-base leading-relaxed">
+            </h2>
+            <p className="text-[#9A9A9A] mt-4 text-sm sm:text-base leading-relaxed">
               Immerse yourself in the world of future technology. Explore our
-              comprehensive resources, connect with fellow tech enthusiasts, and
-              drive innovation in the industry. Join a dynamic community of
-              forward-thinkers.
+              resources, connect with tech enthusiasts, and drive innovation
+              forward with a community of future thinkers.
             </p>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {links.map((item, index) => (
             <div
               key={index}
               onClick={() => navigate(item.path)}
-              className="bg-[#1F1F1F] border border-[#2A2A2A] rounded-2xl p-5 sm:p-6hover:border-[#FFD54A] hover:-translate-y-1transition-all duration-300 cursor-pointer group"
+              className="
+                group
+                relative
+                bg-[#111111]
+                border border-[#1F1F1F]
+                rounded-2xl
+                p-6
+                cursor-pointer
+                transition
+                hover:border-[#BFA34A]/40
+                hover:-translate-y-1
+                hover:shadow-[0_0_30px_rgba(191,163,74,0.12)]
+              "
             >
               <div className="flex justify-between items-start mb-4">
-                <h2 className="text-white font-semibold text-base sm:text-lg">
+                <h3 className="text-white font-semibold text-lg group-hover:text-[#E7D27A] transition">
                   {item.title}
-                </h2>
-
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FFD74B] flex items-center justify-center group-hover:scale-110 transition">
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-                </span>
+                </h3>
+                <div className="w-10 h-10 rounded-xl bg-[#BFA34A] flex items-center justify-center group-hover:scale-110 transition">
+                  <ArrowUpRight className="w-5 h-5 text-black" />
+                </div>
               </div>
-
-              <p className="text-[#9C9C9C] text-sm leading-relaxed">
+              <p className="text-[#9A9A9A] text-sm leading-relaxed">
                 {item.text}
               </p>
+              <div className="mt-5 h-[1px] bg-gradient-to-r from-transparent via-[#BFA34A]/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
             </div>
           ))}
         </div>

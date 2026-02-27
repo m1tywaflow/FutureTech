@@ -45,35 +45,39 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
   return (
     <section
       ref={ref}
-      className="w-full bg-[#0B0B0B] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 border border-[#1E1E1E]"
+      className="relative w-full bg-[#0B0B0B] py-20 px-6 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="flex flex-col items-center text-center mb-10">
-          <div className="flex items-center gap-4 mb-6">
-            <img
-              src={getInTouchIcon}
-              alt="Get in touch"
-              className="w-12 sm:w-14 lg:w-16"
-            />
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white leading-snug">
-              Get in Touch with AI Podcasts
-            </h2>
+      <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="relative max-w-5xl mx-auto">
+        <div className="text-center mb-14">
+          <div className="flex justify-center mb-6">
+            <div className="p-4 rounded-2xl bg-[#111] border border-[#1F1F1F]">
+              <img
+                src={getInTouchIcon}
+                alt="Get in touch"
+                className="w-12 sm:w-14"
+              />
+            </div>
           </div>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-white">
+            Get in Touch
+          </h2>
+          <p className="text-[#9A9A9A] mt-4 max-w-xl mx-auto text-sm sm:text-base">
+            Have questions about AI podcasts or collaboration ideas? Send us a
+            message and our team will get back to you soon.
+          </p>
         </div>
-
-        {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#0F0F0F] p-5 sm:p-6 lg:p-8 rounded-xl border border-[#1F1F1F]"
+          className="bg-[#0F0F0F] border border-[#1F1F1F] rounded-2xl p-6 sm:p-8 shadow-[0_0_40px_rgba(0,0,0,0.4)]"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="text-sm text-gray-300">First Name</label>
+              <label className="text-sm text-[#A1A1A1]">First Name</label>
               <input
                 {...register("firstName")}
-                placeholder="Enter First Name"
-                className="mt-1 w-full bg-[#111] text-white px-4 py-3 rounded-lg outline-none border border-[#1F1F1F] focus:border-yellow-500"
+                placeholder="Enter first name"
+                className="mt-2 w-full bg-[#111] border border-[#262626] px-4 py-3 rounded-xl text-white outline-none focus:border-[#BFA34A] transition"
               />
               {errors.firstName && (
                 <p className="text-red-500 text-sm mt-1">
@@ -81,13 +85,12 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
                 </p>
               )}
             </div>
-
             <div>
-              <label className="text-sm text-gray-300">Last Name</label>
+              <label className="text-sm text-[#A1A1A1]">Last Name</label>
               <input
                 {...register("lastName")}
-                placeholder="Enter Last Name"
-                className="mt-1 w-full bg-[#111] text-white px-4 py-3 rounded-lg outline-none border border-[#1F1F1F] focus:border-yellow-500"
+                placeholder="Enter last name"
+                className="mt-2 w-full bg-[#111] border border-[#262626] px-4 py-3 rounded-xl text-white outline-none focus:border-[#BFA34A] transition"
               />
               {errors.lastName && (
                 <p className="text-red-500 text-sm mt-1">
@@ -96,13 +99,12 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
               )}
             </div>
           </div>
-
           <div className="mb-6">
-            <label className="text-sm text-gray-300">Email</label>
+            <label className="text-sm text-[#A1A1A1]">Email</label>
             <input
               {...register("email")}
-              placeholder="Enter your Email"
-              className="mt-1 w-full bg-[#111] text-white px-4 py-3 rounded-lg outline-none border border-[#1F1F1F] focus:border-yellow-500"
+              placeholder="Enter your email"
+              className="mt-2 w-full bg-[#111] border border-[#262626] px-4 py-3 rounded-xl text-white outline-none focus:border-[#BFA34A] transition"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">
@@ -110,14 +112,13 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
               </p>
             )}
           </div>
-
           <div className="mb-6">
-            <label className="text-sm text-gray-300">Message</label>
+            <label className="text-sm text-[#A1A1A1]">Message</label>
             <textarea
               {...register("message")}
-              placeholder="Enter your Message"
               rows={5}
-              className="mt-1 w-full bg-[#111] text-white px-4 py-3 rounded-lg outline-none border border-[#1F1F1F] focus:border-yellow-500"
+              placeholder="Write your message..."
+              className="mt-2 w-full bg-[#111] border border-[#262626] px-4 py-3 rounded-xl text-white outline-none focus:border-[#BFA34A] transition resize-none"
             />
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">
@@ -125,35 +126,29 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
               </p>
             )}
           </div>
-
           <div className="flex items-start gap-3 mb-6">
             <input
               type="checkbox"
               {...register("terms")}
-              className="w-4 h-4 mt-1 accent-yellow-500"
+              className="w-4 h-4 mt-1 accent-[#BFA34A]"
             />
-            <span className="text-gray-300 text-sm">
+            <span className="text-[#9A9A9A] text-sm">
               I agree with Terms of Use and Privacy Policy
             </span>
           </div>
-
           {errors.terms && (
-            <p className="text-red-500 text-sm mb-4">
-              {errors.terms.message}
-            </p>
+            <p className="text-red-500 text-sm mb-4">{errors.terms.message}</p>
           )}
-
           <button
             type="submit"
-            className="w-full sm:w-auto bg-yellow-500 cursor-pointer hover:bg-yellow-400 text-black font-semibold px-6 py-3 rounded-lg transition"
+            className="w-full sm:w-auto bg-gradient-to-r from-[#BFA34A] to-[#E7D27A] text-black font-semibold px-8 py-3 rounded-xl hover:scale-[1.03] transition"
           >
             Send Message
           </button>
         </form>
-
         {sent && (
-          <div className="mt-6 p-4 rounded-lg bg-green-600 text-white text-sm font-medium text-center animate-fadeIn">
-            ✔ Message Sent Successfully!
+          <div className="mt-6 text-center bg-[#132A1B] border border-[#1E4D2B] text-[#7CFFB2] py-3 rounded-xl text-sm">
+            Message sent successfully !
           </div>
         )}
       </div>

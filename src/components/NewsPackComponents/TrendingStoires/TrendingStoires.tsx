@@ -1,33 +1,39 @@
 "use client";
 
+import { Link } from "react-router-dom";
+
 const trendingStories = [
   {
-    title: "AI Breakthroughs in 2025",
+    title: "Quantum Computing Breakthrough Announced",
     description:
-      "Exploring the latest advancements in artificial intelligence and their impact on various industries.",
+      "A major breakthrough in quantum computing has been announced, marking a significant step forward in processing power and computational capabilities.",
     category: "Technology",
     date: "Nov 20, 2025",
+    link: "/quantum-breakthrough",
   },
   {
-    title: "Global Economic Trends",
+    title: "Tech Giants Unveil Cutting-Edge AI Innovations",
     description:
-      "A deep dive into the current global economy and what it means for businesses worldwide.",
-    category: "Economy",
+      "Leading technology companies have unveiled a new wave of cutting-edge AI innovations designed to transform industries and everyday life.",
+    category: "Technology",
     date: "Nov 18, 2025",
+    link: "/tech-giants-ai",
   },
   {
-    title: "The Future of Remote Work",
+    title: "AI Helps Detect Diseases Earlier",
     description:
-      "How remote work is shaping the modern workforce and organizational culture.",
-    category: "Business",
-    date: "Nov 15, 2025",
-  },
-  {
-    title: "Health Tech Innovations",
-    description:
-      "Innovative technologies transforming healthcare and patient experiences.",
+      "Artificial intelligence is playing a growing role in healthcare by helping doctors detect diseases earlier and more accurately.",
     category: "Health",
+    date: "Nov 15, 2025",
+    link: "/ai-healthcare",
+  },
+  {
+    title: "Election Results Signal Major Shift",
+    description:
+      "Recent election results indicate a significant shift in the political landscape, reflecting changing public priorities and voter sentiment.",
+    category: "Politics",
     date: "Nov 12, 2025",
+    link: "/election-shift",
   },
 ];
 
@@ -69,9 +75,12 @@ export default function TrendingStories() {
               <div className="flex justify-between items-center text-xs text-zinc-500">
                 <span>{story.date}</span>
 
-                <span className="opacity-0 group-hover:opacity-100 transition text-yellow-400">
+                <Link
+                  to={story.link}
+                  className="opacity-0 group-hover:opacity-100 transition text-yellow-400"
+                >
                   Read →
-                </span>
+                </Link>
               </div>
             </div>
           ))}

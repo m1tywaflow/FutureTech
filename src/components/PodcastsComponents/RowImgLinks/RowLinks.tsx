@@ -15,15 +15,15 @@ export default function RowLinks() {
     },
     {
       img: subCont2,
-      title: "AI in HealthcareAI in Healthcare",
+      title: "AI Ethics",
       description:
         "Explore the ethical dilemmas and considerations surrounding AI with guest speaker Dr. Michael Turner.",
     },
     {
       img: subCont3,
-      title: "AI in HealthcareAI in Healthcare",
+      title: "Machine Learning Deep Dive",
       description:
-        "Dive into the intricacies of machine learning with AI expert Sarah Davis. In this episode.",
+        "Dive into the intricacies of machine learning with AI expert Sarah Davis in this episode.",
     },
     {
       img: subCont4,
@@ -35,41 +35,46 @@ export default function RowLinks() {
       img: subCont5,
       title: "AI in Education",
       description:
-        "Explore the role of AI in education as Emily Turner discusses how AI is transforming the learning experience.",
+        "Explore how AI is transforming the learning experience and reshaping modern education.",
     },
     {
       img: subCont6,
       title: "AI in Entertainment",
       description:
-        "David Smith as they explore the influence of AI in the entertainment industry.",
+        "David Smith explores the influence of AI in the entertainment industry and media creation.",
     },
   ];
 
   return (
-    <section className="w-full text-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-10 lg:px-20 bg-[#0D0D0D]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-        {podcasts.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col border border-[#1E1E1E] rounded-2xl bg-[#121212] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-          >
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-44 sm:h-52 md:h-56 object-cover transition-transform duration-500 hover:scale-105"
-            />
-
-            <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
-              <h3 className="text-base sm:text-lg font-semibold">
-                {item.title}
-              </h3>
-
-              <p className="text-xs sm:text-sm text-gray-300">
-                {item.description}
-              </p>
+    <section className="relative w-full bg-[#0A0A0A] text-white py-24 px-6 lg:px-16 overflow-hidden">
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="relative max-w-8xl mx-auto border border-[#1A1A1A] rounded-3xl overflow-hidden bg-[#0C0C0C]/60 backdrop-blur-xl p-8 lg:p-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {podcasts.map((item) => (
+            <div
+              key={item.title}
+              className="group flex flex-col bg-[#0F0F0F] border border-[#1F1F1F] rounded-2xl overflow-hidden transition hover:border-[#BFA34A]/40 hover:shadow-[0_0_30px_rgba(191,163,74,0.15)] hover:-translate-y-1"
+            >
+              <div className="relative w-full h-52 overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-70" />
+              </div>
+              <div className="p-6 flex flex-col gap-3">
+                <h3 className="text-lg font-semibold group-hover:text-[#E7D27A] transition">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-[#9A9A9A] leading-relaxed">
+                  {item.description}
+                </p>
+                <div className="mt-4 h-[1px] bg-gradient-to-r from-transparent via-[#BFA34A]/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

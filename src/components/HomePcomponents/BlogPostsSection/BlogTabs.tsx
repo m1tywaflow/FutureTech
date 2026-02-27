@@ -102,7 +102,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 25 },
   visible: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 },
 };
@@ -131,99 +131,99 @@ const BlogTabs = () => {
       : posts.filter((post) => post.category === activeTab);
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-8 text-white">
-      <div className="flex justify-center gap-4 overflow-x-auto border-b border-neutral-800 pb-4 mb-6">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveTab(category)}
-            className="relative px-6 py-2 text-sm"
-          >
-            {activeTab === category && (
-              <motion.span
-                layoutId="activeTab"
-                className="absolute inset-0 bg-neutral-800 rounded-md -z-10"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
-            <span
-              className={`transition-colors ${
-                activeTab === category
-                  ? "text-white"
-                  : "text-neutral-400 hover:text-white"
-              }`}
+    <section className="relative w-full bg-[#0A0A0A] text-white py-24 px-6 lg:px-16 overflow-hidden">
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="relative max-w-7xl mx-auto border border-[#1A1A1A] rounded-3xl overflow-hidden bg-[#0C0C0C]/60 backdrop-blur-xl p-8 lg:p-12">
+        <div className="flex justify-center gap-4 flex-wrap border-b border-[#1A1A1A] pb-6 mb-10">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className="relative px-6 py-2 text-sm font-medium"
             >
-              {category}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          className="flex flex-col gap-8"
-        >
-          {filteredPosts.map((post) => (
-            <motion.div
-              key={post.id}
-              variants={itemVariants}
-              layout
-              className="flex flex-col lg:flex-row lg:justify-between items-start border-b border-neutral-800 pb-6 gap-4"
-            >
-              <div className="flex flex-col sm:flex-row items-start gap-4 w-full lg:w-auto">
-                <img
-                  src={post.authorImg}
-                  alt={post.author}
-                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+              {activeTab === category && (
+                <motion.span
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-[#0F0F0F] border border-[#1F1F1F] rounded-xl -z-10"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
+              )}
+              <span
+                className={`transition ${
+                  activeTab === category
+                    ? "text-[#E7D27A]"
+                    : "text-[#9A9A9A] hover:text-white"
+                }`}
+              >
+                {category}
+              </span>
+            </button>
+          ))}
+        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="flex flex-col gap-6"
+          >
+            {filteredPosts.map((post) => (
+              <motion.div
+                key={post.id}
+                variants={itemVariants}
+                layout
+                className="group flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-[#0F0F0F] border border-[#1F1F1F] rounded-2xl p-6 transition hover:border-[#BFA34A]/40 hover:shadow-[0_0_30px_rgba(191,163,74,0.15)] hover:-translate-y-1"
+              >
+                <div className="flex gap-4">
+                  <img
+                    src={post.authorImg}
+                    alt={post.author}
+                    className="w-14 h-14 rounded-full object-cover border border-[#1F1F1F]"
+                  />
+                  <div>
+                    <p className="text-sm text-[#9A9A9A]">
+                      {post.author} • {post.category}
+                    </p>
+                    <p className="text-xs text-[#6A6A6A] mt-1">{post.date}</p>
+                    <h3 className="text-lg font-semibold mt-2 group-hover:text-[#E7D27A] transition">
+                      {post.title}
+                    </h3>
+                    <p className="text-[#B3B3B3] text-sm mt-1 max-w-xl">
+                      {post.description}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-4 mt-4 text-sm">
+                      <LikeButton
+                        likes={post.likes}
+                        liked={post.isLiked}
+                        onToggle={() => toggleLike(post.id)}
+                      />
+                      <span className="flex items-center gap-1 text-[#9A9A9A]">
+                        <MessageSquare className="w-4 h-4" />
+                        {post.comments}
+                      </span>
 
-                <div className="flex-1">
-                  <p className="text-sm text-neutral-400">
-                    {post.author} • {post.category}
-                  </p>
-                  <p className="text-xs text-neutral-500 mt-1">{post.date}</p>
-
-                  <h3 className="text-lg font-semibold mt-2">{post.title}</h3>
-
-                  <p className="text-neutral-400 text-sm mt-1">
-                    {post.description}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-4 mt-3 text-sm">
-                    <LikeButton
-                      likes={post.likes}
-                      liked={post.isLiked}
-                      onToggle={() => toggleLike(post.id)}
-                    />
-                    <span className="flex items-center gap-1 text-neutral-400">
-                      <MessageSquare className="w-4 h-4" />
-                      {post.comments}
-                    </span>
-                    <span className="flex items-center gap-1 text-neutral-400">
-                      <Eye className="w-4 h-4" />
-                      {post.views}
-                    </span>
+                      <span className="flex items-center gap-1 text-[#9A9A9A]">
+                        <Eye className="w-4 h-4" />
+                        {post.views}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <Link
-                to="/blog"
-                className="w-full sm:w-fit flex items-center gap-2 bg-black border border-[#1E1E1E] rounded-2xl px-4 sm:px-6 py-3 sm:py-4 hover:bg-[#111111] transition text-sm font-light mt-4 lg:mt-0"
-              >
-                View Blog
-                <ArrowUpRight className="w-4 h-4 text-yellow-500" />
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
-    </div>
+                <Link
+                  to="/blog"
+                  className="group flex items-center gap-2 bg-[#0F0F0F] border border-[#1F1F1F] rounded-2xl px-6 py-3 hover:border-[#BFA34A]/40 hover:shadow-[0_0_20px_rgba(191,163,74,0.2)] transition"
+                >
+                  View Blog
+                  <ArrowUpRight className="w-4 h-4 text-[#E7D27A] group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
   );
 };
 
