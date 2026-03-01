@@ -79,8 +79,9 @@ export default function ExploreSection() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-[#423207] border border-[#1F1F1F] rounded-xl p-6
-                hover:border-[#BFA34A]/40 transition"
+                className="bg-[#463b1a] border border-[#1F1F1F] rounded-xl p-6
+                hover:border-[#BFA34A]/40 transition hover:shadow-[0_0_30px_rgba(191,163,74,0.18)]
+              hover:-translate-y-1"
               >
                 <h2 className="text-3xl font-semibold">
                   <Counter end={item.end} />
