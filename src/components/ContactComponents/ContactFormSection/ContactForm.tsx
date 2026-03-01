@@ -3,6 +3,7 @@ import { z } from "zod";
 import { forwardRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import getInTouchIcon from "../../../assets/ContactUs/Icons/getintouchIcon.png";
+import emailjs from "@emailjs/browser";
 
 const schema = z.object({
   firstName: z.string().min(4, "First name is too short"),
@@ -35,11 +36,26 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
 
   const [sent, setSent] = useState(false);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    setSent(true);
-    reset();
-    setTimeout(() => setSent(false), 3000);
+  const onSubmit = async (data: FormData) => {
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          first_name: data.firstName,
+          last_name: data.lastName,
+          email: data.email,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setSent(true);
+      reset();
+      setTimeout(() => setSent(false), 3000);
+    } catch (error) {
+      console.error("Email send error:", error);
+    }
   };
 
   return (
