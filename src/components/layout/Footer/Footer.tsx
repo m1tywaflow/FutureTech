@@ -141,21 +141,14 @@ export default function Footer() {
 
         <div className="flex gap-5">
           <a
-            href="#"
+            href="https://x.com/dimanihao"
             aria-label="Twitter"
             className="hover:text-white transition-colors"
           >
             <Twitter className="w-4 h-4" />
           </a>
           <a
-            href="#"
-            aria-label="Dribbble"
-            className="hover:text-white transition-colors"
-          >
-            <Dribbble className="w-4 h-4" />
-          </a>
-          <a
-            href="#"
+            href="https://www.linkedin.com/in/dmitriy-marchuk-973253355/"
             aria-label="LinkedIn"
             className="hover:text-white transition-colors"
           >
