@@ -43,10 +43,11 @@ export default function LinkSection() {
       <div
         className="
         grid grid-cols-1 md:grid-cols-3
-        border border-[#1E1E1E]
+        border border-[#151515]
         divide-y md:divide-y-0 md:divide-x
         divide-[#1E1E1E]
-        overflow-hidden
+        overflow-hidden 
+        
       "
       >
         {data.map((item, index) => (
@@ -56,13 +57,16 @@ export default function LinkSection() {
             className="
               flex flex-col justify-between
               p-6 sm:p-8 lg:p-10
-              bg-[#0D0D0D]
-              hover:bg-[#111111]
-              transition-colors
+              bg-[#BFA34A]/10
+              hover:bg-[#BFA34A]/20
+              duration-200
+              hover:text-[#E7D27A]
+                hover:shadow-[0_0_30px_rgba(191,163,74,0.12)]
+              transition-colors 
             "
           >
-            <div className="flex justify-between gap-6">
-              <div className="space-y-4 sm:space-y-6">
+            <div className="flex justify-between gap-6 ">
+              <div className="space-y-4 sm:space-y-6 ">
                 <img
                   src={item.icon}
                   alt="icon"
@@ -70,29 +74,27 @@ export default function LinkSection() {
                 />
 
                 <div>
-                  <h2 className="text-white text-base sm:text-lg font-semibold mb-1">
+                  <h2 className="text-[#CFCFCF] text-base sm:text-lg font-semibold mb-1">
                     {item.title}
                   </h2>
 
-                  <p className="text-gray-400 text-xs sm:text-sm mb-2 sm:mb-3">
+                  <p className="text-[#CFCFCF] text-xs sm:text-sm mb-2 sm:mb-3">
                     {item.subtitle}
                   </p>
-
-                  <p className="text-gray-500 text-xs sm:text-sm">
+                  <p className="text-[#CFCFCF] text-xs sm:text-sm">
                     {item.description}
                   </p>
                 </div>
               </div>
-
               <div className="mt-4 sm:mt-8">
                 <div
                   className="
                   w-9 h-9 sm:w-10 sm:h-10
                   flex items-center justify-center
                   rounded-full
-                  bg-[#FFD11A]
+                  bg-[#BFA34A]
                   hover:bg-yellow-400
-                  transition-colors
+                  hover:scale-110 transition
                 "
                 >
                   <MoveUpRight className="text-black w-4 h-4 sm:w-5 sm:h-5" />
