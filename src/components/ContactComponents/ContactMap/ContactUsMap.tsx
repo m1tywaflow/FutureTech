@@ -10,7 +10,11 @@ import {
 const ContactUsMap = () => {
   return (
     <section className="relative py-20">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-yellow-400/10 blur-[140px] rounded-full" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 
+-translate-x-1/2 -translate-y-1/2 
+w-[700px] h-[700px] bg-yellow-400/10 blur-[140px] rounded-full"
+      />
       <div
         className="relative max-w-7xl mx-auto h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#0B0B0B] shadow-[0_0_40px_rgba(250,204,21,0.05)]"
         data-lenis-prevent

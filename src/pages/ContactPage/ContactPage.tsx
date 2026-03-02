@@ -15,12 +15,12 @@ const ContactUs = () => {
   };
 
   return (
-    <>
+    <main className="overflow-x-hidden">
       <GetInTouch />
       <ContactUsMap />
       <ContactForm ref={contactRef} />
       <FAQ onAskClick={scrollToContact} />
-    </>
+    </main>
   );
 };
 

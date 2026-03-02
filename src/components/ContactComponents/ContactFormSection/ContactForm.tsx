@@ -66,7 +66,7 @@ const ContactForm = forwardRef<HTMLElement, ContactFormProps>((_, ref) => {
       ref={ref}
       className="relative w-full bg-[#0B0B0B] py-20 px-6 overflow-hidden"
     >
-      <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[420px] h-[420px] sm:w-[650px] sm:h-[650px] lg:w-[900px] lg:h-[900px] bg-[#BFA34A]/10 blur-[160px] rounded-full" />
       <div className="relative max-w-5xl mx-auto">
         <div className="text-center mb-14">
           <div className="flex justify-center mb-6">
