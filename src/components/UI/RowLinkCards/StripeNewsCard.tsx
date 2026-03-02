@@ -12,7 +12,10 @@ interface Card {
 
 export default function StripeNewsCard({ card }: { card: Card }) {
   return (
-    <div className="w-full h-[480px] group mx-auto bg-[#111] p-2 border border-[#2A2A2A] overflow-hidden rounded-md text-white">
+    <div
+      onClick={() => (window.location.href = card.link)}
+      className="w-full h-[480px] group mx-auto bg-[#111] p-2 border border-[#2A2A2A] overflow-hidden rounded-md text-white cursor-pointer active:scale-[0.98] transition"
+    >
       <figure className="w-full h-80 group-hover:h-72 transition-all duration-300 bg-[#111111] p-2 rounded-md relative overflow-hidden">
         <div
           style={{
@@ -46,9 +49,10 @@ export default function StripeNewsCard({ card }: { card: Card }) {
         </div>
         <a
           href={card.link}
-          className="text-[#FFD600] font-normal opacity-0 group-hover:opacity-100
-      translate-y-2 group-hover:translate-y-0 pt-2 flex items-center gap-1
-      transition-all duration-300"
+          className="text-[#FFD600] font-normal 
+  opacity-100 md:opacity-0 md:group-hover:opacity-100
+  translate-y-0 md:translate-y-2 md:group-hover:translate-y-0
+  pt-2 flex items-center gap-1 transition-all duration-300"
         >
           Read more <ChevronRight size={18} />
         </a>

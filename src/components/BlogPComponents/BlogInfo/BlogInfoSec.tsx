@@ -1,13 +1,13 @@
 export default function BlogInfoSec() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 py-20 text-white bg-gradient-to-b from-black via-zinc-900 to-black">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-        <div className="lg:col-span-2 space-y-16">
-          <div className="relative pl-6 border-l border-yellow-400/30">
-            <h2 className="text-xl font-semibold mb-3 text-yellow-400">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-white bg-gradient-to-b from-black via-zinc-900 to-black">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+        <div className="lg:col-span-2 space-y-10 sm:space-y-14 lg:space-y-16">
+          <div className="relative pl-5 sm:pl-6 border-l border-yellow-400/30">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 text-yellow-400">
               Introduction
             </h2>
-            <p className="text-zinc-400 leading-relaxed text-[15px]">
+            <p className="text-zinc-400 leading-relaxed text-sm sm:text-[15px]">
               Artificial Intelligence (AI) has emerged as a transformative force
               in the healthcare industry, reshaping patient care, diagnostics,
               and research. In this blog post, we explore the profound impact of
@@ -15,12 +15,13 @@ export default function BlogInfoSec() {
               enhancing patient outcomes.
             </p>
           </div>
-          <div className="space-y-5">
-            <h2 className="text-3xl font-semibold tracking-tight">
+
+          <div className="space-y-4 sm:space-y-5">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
               Artificial Intelligence (AI)
             </h2>
 
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
               Artificial Intelligence (AI) has permeated virtually every aspect
               of our lives, and healthcare is no exception. The integration of
               AI in healthcare is ushering in a new era of medical practice,
@@ -28,32 +29,35 @@ export default function BlogInfoSec() {
               professionals.
             </p>
 
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
               In this blog post, we will explore diverse applications of AI —
               from diagnostic imaging to personalized treatment — and examine
               the ethical implications shaping this transformation.
             </p>
           </div>
-          <div className="space-y-5">
-            <h2 className="text-2xl font-semibold">
+
+          <div className="space-y-4 sm:space-y-5">
+            <h2 className="text-xl sm:text-2xl font-semibold">
               Predictive Analytics & Disease Prevention
             </h2>
 
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
               One of the most impactful applications of AI lies in predictive
               analytics. Machine learning models can analyze massive datasets
               and identify early warning signs of diseases long before symptoms
               appear.
             </p>
-            <div className="bg-yellow-400/10 border border-yellow-400/20 rounded-xl p-5 text-sm text-zinc-300">
+
+            <div className="bg-yellow-400/10 border border-yellow-400/20 rounded-xl p-4 sm:p-5 text-xs sm:text-sm text-zinc-300">
               AI systems can detect subtle anomalies in medical imaging that are
               often invisible to the human eye, significantly improving early
               diagnosis rates.
             </div>
           </div>
         </div>
-        <aside className="space-y-8 lg:sticky lg:top-24 h-fit">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 space-y-4 text-sm">
+
+        <aside className="space-y-6 sm:space-y-8 lg:sticky lg:top-24 h-fit">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4 text-sm">
             {[
               ["Publication Date", "October 15, 2023"],
               ["Category", "Healthcare"],
@@ -64,15 +68,20 @@ export default function BlogInfoSec() {
                 key={label}
                 className="flex justify-between items-center border-b border-white/5 pb-2 last:border-none"
               >
-                <span className="text-zinc-500">{label}</span>
-                <span className="font-medium text-white">{value}</span>
+                <span className="text-zinc-500 text-xs sm:text-sm">{label}</span>
+                <span className="font-medium text-white text-xs sm:text-sm">
+                  {value}
+                </span>
               </div>
             ))}
           </div>
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-            <h3 className="text-lg font-semibold mb-5">Table of Contents</h3>
 
-            <ul className="space-y-3 text-sm">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6">
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5">
+              Table of Contents
+            </h3>
+
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               {[
                 "Introduction",
                 "AI in Diagnostic Imaging",
