@@ -72,7 +72,6 @@ const StyledWrapper = styled.div`
       rgba(191, 163, 74, 0.18),
       transparent 70%
     );
-    filter: blur(90px);
     pointer-events: none;
   }
 
@@ -87,7 +86,7 @@ const StyledWrapper = styled.div`
     width: var(--w);
     height: var(--h);
     transform-style: preserve-3d;
-    animation: rotating 28s linear infinite;
+    animation: rotating 12s linear infinite;
     will-change: transform;
   }
 
@@ -118,14 +117,9 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
     transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
       translateZ(var(--translateZ));
-
-    backdrop-filter: blur(6px);
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-
     transition: transform 0.4s ease, border 0.3s ease;
   }
 
@@ -146,7 +140,6 @@ const StyledWrapper = styled.div`
     width: 56px;
     height: 56px;
     object-fit: contain;
-    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
   }
 
   .title {
