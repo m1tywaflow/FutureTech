@@ -1,14 +1,17 @@
 import RoalingCards from "@/components/UI/RoalingCards/RoalingCards";
-
+import starsBgImg from "../../../assets/AIBg/starsBg.png";
 const AIModelsSection = () => {
   return (
     <section
       style={{
-        background:
-          "linear-gradient(to bottom, #363030 0%, #2F2A27 40%, #2B2623 100%)",
-        padding: "200px 0",
         position: "relative",
         overflow: "hidden",
+        backgroundImage: `url(${starsBgImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        paddingTop: "140px",
+        paddingBottom: "140px",
       }}
     >
       <div

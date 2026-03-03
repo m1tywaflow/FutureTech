@@ -2,25 +2,26 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import starsBgImg from "../../../assets/AIBg/starsBg.png";
 export default function CTASection() {
   return (
     <section
-      className="relative w-full py-32
-      bg-gradient-to-b from-[#2B2623] via-[#26221F] to-[#1F1B18]
-      overflow-hidden flex justify-center items-center px-6"
+      className="relative w-full py-32 overflow-hidden flex justify-center items-center px-6"
+      style={{
+        backgroundImage: `url(${starsBgImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      {/* мягкий свет сверху (переход между секциями) */}
       <div
         className="absolute inset-0
-        bg-[radial-gradient(circle_at_50%_0%,rgba(191,163,74,0.18),transparent_60%)]"
+    bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.06),transparent_60%)]"
       />
-
-      {/* основной ambient glow */}
       <div
         className="absolute -bottom-40 left-1/2 -translate-x-1/2
-        w-[700px] h-[700px]
-        bg-[#BFA34A]/20 blur-[120px] rounded-full"
+    w-[700px] h-[700px]
+    bg-white/5 blur-[120px] rounded-full"
       />
 
       <motion.div
