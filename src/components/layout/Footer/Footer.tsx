@@ -1,4 +1,4 @@
-import { Twitter, Dribbble, Linkedin } from "lucide-react";
+import { Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type FooterLink = {
@@ -67,7 +67,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className="bg-black text-gray-300 py-12 md:py-16">
+    <footer className="bg-black bg-gradient-to-b from-black to-white/20 text-gray-300 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div>
           <h3 className="text-white font-semibold mb-4">Home</h3>
@@ -139,18 +139,18 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="flex gap-5">
+        <div className="flex gap-5 text-black">
           <a
             href="https://x.com/dimanihao"
             aria-label="Twitter"
-            className="hover:text-white transition-colors"
+            className="hover:text-white hover:bg-black duration-200 transition-colors bg-white rounded-2xl p-1"
           >
             <Twitter className="w-4 h-4" />
           </a>
           <a
             href="https://www.linkedin.com/in/dmitriy-marchuk-973253355/"
             aria-label="LinkedIn"
-            className="hover:text-white transition-colors"
+            className="hover:text-white hover:bg-black transition-colors bg-white rounded-2xl p-1"
           >
             <Linkedin className="w-4 h-4" />
           </a>
