@@ -157,7 +157,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center lg:text-right">
-          © 2024 FutureTech. All rights reserved.
+          © 2026 FutureTech. All rights reserved.
         </p>
       </div>
     </footer>
